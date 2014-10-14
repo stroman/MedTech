@@ -24,11 +24,11 @@ namespace MedTech.Core.Domain.Categories
         /// <summary>
         /// Gets or sets the parent category identifier
         /// </summary>
-        public int ParentCategoryId { get; set; }
+        public long? ParentCategoryId { get; set; }
 
         /// <summary>
         /// Gets or sets the sequence in the list of categories
         /// </summary>
-        public int? Sequence { get; set; }
+        public long? Sequence { get; set; }
     }
 }

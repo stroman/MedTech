@@ -6,16 +6,27 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Reflection;
 using System.Data.Entity.ModelConfiguration;
+using MedTech.Core;
 
 namespace MedTech.Infrastructure
 {
     /// <summary>
     /// Object context
     /// </summary>
-    public class MedTechObjectContext : DbContext
+    public class MedTechObjectContext : DbContext, IDbContext
     {
         public MedTechObjectContext(string nameOrConnectionString): base(nameOrConnectionString)
         {
+        }
+
+        /// <summary>
+        /// Get DbSet
+        /// </summary>
+        /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <returns>DbSet</returns>
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        {
+            return base.Set<TEntity>();
         }
 
         /// <summary>
@@ -29,8 +40,8 @@ namespace MedTech.Infrastructure
             //dynamically load all configuration
             //...or do it manually below. For example, modelBuilder.Configurations.Add(new LanguageMap());
             var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
-                .Where(type => !String.IsNullOrEmpty(type.Namespace))
-                .Where(type => type.BaseType != null && type.BaseType.IsGenericType && type.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
+                    .Where(type => !String.IsNullOrEmpty(type.Namespace))
+                    .Where(type => type.BaseType != null && type.BaseType.IsGenericType && type.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
             foreach (var type in typesToRegister)
             {
                 dynamic configInstance = Activator.CreateInstance(type);
@@ -44,7 +55,5 @@ namespace MedTech.Infrastructure
 
             base.OnModelCreating(modelBuilder);
         }
-    }
-
-    
+    }    
 }

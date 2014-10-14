@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EfRepository.cs" />
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="Mapping\Categories\CategoryMap.cs" />
     <Compile Include="MedTechMigrationsConfiguration.cs" />
     <Compile Include="MedTechObjectContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,6 +56,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Readme.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MedTech.Core\MedTech.Core.csproj">
@@ -61,6 +64,7 @@
       <Name>MedTech.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
