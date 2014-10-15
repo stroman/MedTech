@@ -15,7 +15,7 @@ namespace MedTech.Infrastructure
     /// </summary>
     public class MedTechObjectContext : DbContext, IDbContext
     {
-        public MedTechObjectContext(string nameOrConnectionString): base(nameOrConnectionString)
+        public MedTechObjectContext(): base()
         {
         }
 
