@@ -14,7 +14,7 @@ namespace MedTech.Web.Api.Controllers
         {
             return new CategoryDto
             {
-                Id = 0,
+                Id = 1,
                 Name = "Category1",
                 Description = "Test category"
             };

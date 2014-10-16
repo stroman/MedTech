@@ -13,6 +13,12 @@ namespace MedTech.Web.Mvc
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(                
+                name: "DefaultApi",
+                url: "MedTech.Web.Api/api/{controller}/{id}",                
+                defaults: new { id = UrlParameter.Optional },                
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

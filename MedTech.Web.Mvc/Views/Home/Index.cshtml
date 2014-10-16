@@ -18,12 +18,14 @@
 </table>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    var aUrl = '@Url.RouteUrl("DefaultApi", new {controller = "category"})';
+    $(document).ready(function () {        
         $.ajax({
-            type: "GET",
-            url: "/api/Category",
-            succes: function (data) {
-                alert(data);
+            type: "GET",            
+            //url: "/MedTech.Web.Api/api/category",
+            url: aUrl,
+            success: function (data) {
+                alert("Прибыли данные: " + data.Id);
             }
         });
     });
