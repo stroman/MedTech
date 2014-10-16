@@ -15,8 +15,8 @@ namespace MedTech.Web.Mvc
 
             routes.MapRoute(                
                 name: "DefaultApi",
-                url: "MedTech.Web.Api/api/{controller}/{id}",                
-                defaults: new { id = UrlParameter.Optional },                
+                url: "api/{controller}/{id}",                
+                defaults: new { id = UrlParameter.Optional }                
             );
 
             routes.MapRoute(
