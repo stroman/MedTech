@@ -17,5 +17,10 @@ namespace MedTech.Infrastructure
             //If set to false an exception will be thrown if data loss may occur as part of an automatic migration.
             AutomaticMigrationDataLossAllowed = true;
         }
+
+        protected override void Seed(MedTechObjectContext context)
+        {
+            base.Seed(context);
+        }
     }
 }

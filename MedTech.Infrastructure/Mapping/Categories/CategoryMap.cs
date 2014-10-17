@@ -14,7 +14,10 @@ namespace MedTech.Infrastructure.Mapping.Categories
         {
             this.ToTable("Category");
             this.HasKey(c => c.Id);
-            this.Property(c => c.Name).IsRequired();            
+            this.Property(c => c.Name).IsRequired();
+            this.Property(c => c.Description).IsOptional();
+            this.Property(c => c.ParentCategoryId).IsOptional();
+            this.Property(c => c.Sequence).IsOptional();
         }
     }
 }

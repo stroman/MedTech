@@ -43,6 +43,9 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Domain\Categories\Category.cs" />
+    <Compile Include="Domain\Membership\Role.cs" />
+    <Compile Include="Domain\Membership\RoleEnum.cs" />
+    <Compile Include="Domain\Membership\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -54,6 +54,6 @@ namespace MedTech.Infrastructure
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MedTechObjectContext, MedTechMigrationsConfiguration>());
 
             base.OnModelCreating(modelBuilder);
-        }
+        }        
     }    
 }
