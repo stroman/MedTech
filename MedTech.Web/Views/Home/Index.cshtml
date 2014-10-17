@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Index";   
+}
+
+<h2>Index</h2>
+@section scripts{
+    <script>
+    $(document).ready(function () {        
+        $.ajax({
+            url: '@Url.HttpRouteUrl("DefaultApi", new { controller = "category" })',            
+            success: function (data) {
+                alert(data.Name);
+            }
+        });
+    });
+    </script>   
+}
+
+

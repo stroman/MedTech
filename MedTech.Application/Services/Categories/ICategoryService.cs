@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using MedTech.Application.DTO.Categories;
+
 namespace MedTech.Application.Services.Categories
 {
-    interface ICategoryService
+    public interface ICategoryService
     {
+        List<CategoryDto> GetAllCategory();
     }
 }
