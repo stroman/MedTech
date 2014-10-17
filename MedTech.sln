@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedTech.Infrastructure", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedTech.Application", "MedTech.Application\MedTech.Application.csproj", "{6B599F68-E229-4A3F-83D9-E717BE295C23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedTech.Web.Api", "MedTech.Web.Api\MedTech.Web.Api.csproj", "{A3CF3FFF-56EC-495F-B42A-7A3AE69D50E8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedTech.Web.Mvc", "MedTech.Web.Mvc\MedTech.Web.Mvc.csproj", "{9E039113-315B-42B1-B901-10C136E88E8E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,14 +27,6 @@ Global
 		{6B599F68-E229-4A3F-83D9-E717BE295C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B599F68-E229-4A3F-83D9-E717BE295C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B599F68-E229-4A3F-83D9-E717BE295C23}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3CF3FFF-56EC-495F-B42A-7A3AE69D50E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3CF3FFF-56EC-495F-B42A-7A3AE69D50E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3CF3FFF-56EC-495F-B42A-7A3AE69D50E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3CF3FFF-56EC-495F-B42A-7A3AE69D50E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E039113-315B-42B1-B901-10C136E88E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E039113-315B-42B1-B901-10C136E88E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E039113-315B-42B1-B901-10C136E88E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E039113-315B-42B1-B901-10C136E88E8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
