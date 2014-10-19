@@ -15,7 +15,7 @@ namespace MedTech.Infrastructure.Mapping.Membership
         {
             this.ToTable("Role");
             this.HasKey(r => r.Id);
-            this.Property(r => r.Name).IsRequired();
+            this.Property(r => r.Name).IsRequired().HasMaxLength(50);
         }
     }
 }

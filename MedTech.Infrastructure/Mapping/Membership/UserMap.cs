@@ -20,10 +20,11 @@ namespace MedTech.Infrastructure.Mapping.Membership
                 .Map(x => x.ToTable("UserRole"));
 
             this.HasKey(u => u.Id);
-            this.Property(u => u.FirstName).IsRequired();
-            this.Property(u => u.LastName).IsRequired();
-            this.Property(u => u.Email).IsRequired();
-            this.Property(u => u.Password).IsRequired();
+            this.Property(u => u.FirstName).IsRequired().HasMaxLength(50);
+            this.Property(u => u.LastName).IsRequired().HasMaxLength(50);
+            this.Property(u => u.Email).IsRequired().HasMaxLength(50);
+            this.Property(u => u.Password).IsRequired().HasMaxLength(128);
+            this.Property(u => u.Salt).IsRequired().HasMaxLength(128);
             this.Property(u => u.LastLoginDate).IsOptional();
         }
     }
