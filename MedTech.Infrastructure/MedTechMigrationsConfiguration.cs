@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using MedTech.Core.Domain.Membership;
+
 namespace MedTech.Infrastructure
 {
     public class MedTechMigrationsConfiguration : DbMigrationsConfiguration<MedTechObjectContext>
@@ -20,6 +22,16 @@ namespace MedTech.Infrastructure
 
         protected override void Seed(MedTechObjectContext context)
         {
+            //context.Set<Role>().Add(new Role { Id = (long)RoleEnum.Admin, Name = Enum.GetName(typeof(RoleEnum), (long)RoleEnum.Admin) });
+            //context.Set<Role>().Add(new Role { Id = (long)RoleEnum.Manager, Name = Enum.GetName(typeof(RoleEnum), (long)RoleEnum.Manager) });
+            //context.Set<User>().Add(new User
+            //{
+            //    Id = 1,
+            //    FirstName = "Admin",
+            //    LastName = "Admin",
+            //    Email = "admin@medtech.com",
+
+            //});
             base.Seed(context);
         }
     }
