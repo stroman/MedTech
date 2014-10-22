@@ -17,7 +17,7 @@ namespace MedTech.Infrastructure.Mapping.Membership
             
             this.HasMany(u => u.Roles)
                 .WithMany(r => r.Users)
-                .Map(x => x.ToTable("UserRole"));
+                .Map(x => x.ToTable("UserRole").MapLeftKey("UserId").MapRightKey("RoleId"));
 
             this.HasKey(u => u.Id);
             this.Property(u => u.FirstName).IsRequired().HasMaxLength(50);

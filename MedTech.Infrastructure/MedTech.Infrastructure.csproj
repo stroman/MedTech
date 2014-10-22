@@ -51,6 +51,7 @@
     <Compile Include="EfRepository.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mapping\Categories\CategoryMap.cs" />
+    <Compile Include="Mapping\CompanyInfo\CompanyInfoMap.cs" />
     <Compile Include="Mapping\Membership\RoleMap.cs" />
     <Compile Include="Mapping\Membership\UserMap.cs" />
     <Compile Include="MedTechMigrationsConfiguration.cs" />

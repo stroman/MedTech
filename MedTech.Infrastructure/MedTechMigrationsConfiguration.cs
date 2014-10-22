@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using MedTech.Core.Domain.Membership;
+using MedTech.Core.Domain.CompanyInfo;
 
 namespace MedTech.Infrastructure
 {
@@ -32,6 +33,15 @@ namespace MedTech.Infrastructure
             //    Email = "admin@medtech.com",
 
             //});
+
+            context.Set<CompanyInfo>().Add(new CompanyInfo
+            {
+                Id = 1,
+                Name = "TestCompany",
+                Description = "The best company.",
+                Address = "New York"
+            });
+            context.SaveChanges();
             base.Seed(context);
         }
     }
