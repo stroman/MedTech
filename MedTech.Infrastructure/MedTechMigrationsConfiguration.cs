@@ -34,13 +34,16 @@ namespace MedTech.Infrastructure
 
             //});
 
-            context.Set<CompanyInfo>().Add(new CompanyInfo
+            if (!context.Set<CompanyInfo>().Any())
             {
-                Id = 1,
-                Name = "TestCompany",
-                Description = "The best company.",
-                Address = "New York"
-            });
+                context.Set<CompanyInfo>().Add(new CompanyInfo
+                {
+                    Id = 1,
+                    Name = "MedTech Company",
+                    Description = "The best company.",
+                    Address = "Minsk"
+                });
+            }
             context.SaveChanges();
             base.Seed(context);
         }

@@ -37,9 +37,9 @@ namespace MedTech.Application.Services.Categories
         #endregion
 
         #region Helper methods
-        private List<Category> GetActualCategories()
+        private IEnumerable<Category> GetActualCategories()
         {
-            return _categoryRepository.Table.ToList();
+            return _categoryRepository.Table.AsEnumerable();
         }
         #endregion
     }

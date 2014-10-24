@@ -24,7 +24,7 @@ namespace MedTech.Core.Domain.CompanyInfo
         /// <summary>
         /// Gets or sets the company identifier
         /// </summary>
-        public int CompanyId { get; set; }
+        public long CompanyId { get; set; }
 
         /// <summary>
         /// Gets or sets the company

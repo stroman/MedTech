@@ -6,6 +6,7 @@ namespace MedTech.Core.Domain.CompanyInfo
     {
         Phone = 1,
         Pax = 2,
-        Email =3
+        Email = 3,
+        WebSite = 4
     }
 }
