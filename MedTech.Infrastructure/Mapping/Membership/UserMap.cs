@@ -14,10 +14,11 @@ namespace MedTech.Infrastructure.Mapping.Membership
         public UserMap()
         {
             this.ToTable("User");
-            
-            this.HasMany(u => u.Roles)
+
+            this.HasRequired(u => u.Role)
                 .WithMany(r => r.Users)
-                .Map(x => x.ToTable("UserRole").MapLeftKey("UserId").MapRightKey("RoleId"));
+                .HasForeignKey(u => u.RoleId)
+                .WillCascadeOnDelete(false);
 
             this.HasKey(u => u.Id);
             this.Property(u => u.FirstName).IsRequired().HasMaxLength(50);
@@ -25,6 +26,7 @@ namespace MedTech.Infrastructure.Mapping.Membership
             this.Property(u => u.Email).IsRequired().HasMaxLength(50);
             this.Property(u => u.Password).IsRequired().HasMaxLength(128);
             this.Property(u => u.Salt).IsRequired().HasMaxLength(128);
+            this.Property(u => u.Phone).IsRequired().HasMaxLength(50);
             this.Property(u => u.LastLoginDate).IsOptional();
         }
     }

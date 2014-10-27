@@ -23,17 +23,24 @@ namespace MedTech.Infrastructure
 
         protected override void Seed(MedTechObjectContext context)
         {
-            //context.Set<Role>().Add(new Role { Id = (long)RoleEnum.Admin, Name = Enum.GetName(typeof(RoleEnum), (long)RoleEnum.Admin) });
-            //context.Set<Role>().Add(new Role { Id = (long)RoleEnum.Manager, Name = Enum.GetName(typeof(RoleEnum), (long)RoleEnum.Manager) });
-            //context.Set<User>().Add(new User
-            //{
-            //    Id = 1,
-            //    FirstName = "Admin",
-            //    LastName = "Admin",
-            //    Email = "admin@medtech.com",
+            if (!context.Set<Role>().Any() && !context.Set<User>().Any())
+            {
+                context.Set<Role>().Add(new Role { Id = (long)RoleEnum.Admin, Name = Enum.GetName(typeof(RoleEnum), (long)RoleEnum.Admin) });
+                context.Set<Role>().Add(new Role { Id = (long)RoleEnum.Manager, Name = Enum.GetName(typeof(RoleEnum), (long)RoleEnum.Manager) });
 
-            //});
+                context.Set<User>().Add(new User
+                {
+                    Id = 1,
+                    FirstName = "Admin",
+                    LastName = "Admin",
+                    Email = "admin@medtech.com",
+                    Password = "G1w4UiQ+TkUNrsRnx+UZ32xcdmXd/RiMmx2MAS3gn5A=",
+                    Salt = "VfKmAcO3kxWWvSumYfc5lhlngBvme+oUUUtyrmm4vfM=",
+                    Phone = "+37529",
+                    RoleId = (long)RoleEnum.Admin
 
+                });
+            }
             if (!context.Set<CompanyInfo>().Any())
             {
                 context.Set<CompanyInfo>().Add(new CompanyInfo
@@ -44,6 +51,7 @@ namespace MedTech.Infrastructure
                     Address = "Minsk"
                 });
             }
+
             context.SaveChanges();
             base.Seed(context);
         }

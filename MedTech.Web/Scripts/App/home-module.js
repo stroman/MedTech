@@ -3,7 +3,7 @@ var homeModule = angular.module('homeModule', ['ngRoute']);
 
 homeModule.config(function ($routeProvider) {
     $routeProvider.when('/CompanyInfo', {
-        templateUrl: '/Templates/Home/CompanyInfo.html',
+        templateUrl: '/Home/CompanyInfo',
         controller: 'CompanyInfoController'
     });
 

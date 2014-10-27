@@ -8,8 +8,6 @@ namespace MedTech.Core.Domain.Membership
 {
     public class User : BaseEntity
     {
-        private ICollection<Role> _roles;
-
         /// <summary>
         /// Gets or sets the first name
         /// </summary>
@@ -39,12 +37,15 @@ namespace MedTech.Core.Domain.Membership
         /// </summary>
         public Nullable<System.DateTime> LastLoginDate { get; set; }
         /// <summary>
-        /// Gets or sets roles
+        /// Gets or sets role identifier
         /// </summary>
-        public virtual ICollection<Role> Roles
-        {
-            get { return _roles ?? (_roles = new List<Role>()); }
-            set { _roles = value; }
-        }
+        public long RoleId { get; set; }
+        /// <summary>
+        /// Gets or sets roles
+        /// </summary>        
+        public virtual Role Role { get; set; }
+
+
+        
     }
 }

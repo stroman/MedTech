@@ -15,14 +15,8 @@ namespace MedTech.Web.Controllers
 
         public ActionResult Login()
         {
-            return View("Login1");
-        }
-
-        //[HttpPost]
-        //public ActionResult Login()
-        //{
-        //    return RedirectToAction("Index","Home");
-        //}
+            return View();
+        }        
 
         public ActionResult Logout()
         {

@@ -29,6 +29,11 @@ namespace MedTech.Core.Domain.CompanyInfo
         public string Address { get; set; }
 
         /// <summary>
+        /// Gets or sets the address mark on the map in web (google map for example)
+        /// </summary>
+        public string UrlAddress { get; set; }
+
+        /// <summary>
         /// Gets or sets contacts
         /// </summary>
         public virtual ICollection<Contact> Contacts

@@ -19,6 +19,7 @@ namespace MedTech.Infrastructure.Mapping.CompanyInfo
             this.Property(ci => ci.Name).IsRequired().HasMaxLength(256);
             this.Property(ci => ci.Description).IsOptional().HasMaxLength(40000);
             this.Property(ci => ci.Address).IsRequired().HasMaxLength(256);
+            this.Property(ci => ci.UrlAddress).IsOptional().HasMaxLength(512);
             
         }
     }

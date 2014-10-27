@@ -13,14 +13,15 @@ namespace MedTech.Core.Domain.Membership
         /// Gets or sets the name of role
         /// </summary>
         public string Name { get; set; }
-        
+
         /// <summary>
-        /// Gets or sets users
-        /// </summary>
+        /// Gets or sets users of the role
+        /// </summary>        
+
         public virtual ICollection<User> Users
         {
             get { return _users ?? (_users = new List<User>()); }
-            set {_users = value;}
+            set { _users = value; }
         }
     }
 }

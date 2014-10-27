@@ -4,6 +4,8 @@ using MedTech.Core.Domain.Categories;
 using MedTech.Application.DTO.Categories;
 using MedTech.Core.Domain.CompanyInfo;
 using MedTech.Application.DTO.CompanyInfo;
+using MedTech.Core.Domain.Membership;
+using MedTech.Application.DTO.Membership;
 
 namespace MedTech.Application.Mapping
 {
@@ -38,6 +40,23 @@ namespace MedTech.Application.Mapping
         }
 
         public static CompanyInfo ToEntity(this CompanyInfoDto dto, CompanyInfo destination)
+        {
+            return Mapper.Map(dto, destination);
+        }
+        #endregion
+
+        #region Membership
+        public static UserDto ToDto(this User entity)
+        {
+            return Mapper.Map<User, UserDto>(entity);
+        }
+
+        public static User ToEntity(this UserDto dto)
+        {
+            return Mapper.Map<UserDto, User>(dto);
+        }
+
+        public static User ToEntity(this UserDto dto, User destination)
         {
             return Mapper.Map(dto, destination);
         }
