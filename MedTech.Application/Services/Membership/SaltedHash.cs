@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Globalization;
 
-namespace MedTech.Application.Membership
+namespace MedTech.Application.Services.Membership
 {
     public class SaltedHash
     {

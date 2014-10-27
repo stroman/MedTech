@@ -7,7 +7,8 @@
 {
     <script src="~/Scripts/App/CompanyInfo/companyinfo-controller.js"></script>
     <script src="~/Scripts/App/CompanyInfo/companyinfo-repository.js"></script>
-    <script src="~/Scripts/App/Membership/login-controller.js"></script>    
+    <script src="~/Scripts/App/Account/account-controller.js"></script>
+    <script src="~/Scripts/App/Account/account-repository.js"></script>
 }
 
 <div class="navbar navbar-default navbar-fixed-top">
@@ -24,9 +25,9 @@
             <ul class="nav navbar-nav">                
                 <li><a href="#/CompanyInfo">Company Info</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/Login">Login</a></li>
-            </ul>
+            
+                @*<li><a href="#/Login">Login</a></li>*@
+            @Html.Partial("_LogInOff")
         </div>
     </div>
 </div>

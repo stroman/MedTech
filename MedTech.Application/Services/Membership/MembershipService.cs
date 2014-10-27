@@ -9,7 +9,7 @@ using MedTech.Core.Domain.Membership;
 
 namespace MedTech.Application.Services.Membership
 {
-    public class MembershipService
+    public class MembershipService : IMembershipService
     {
         /// <summary>
         /// Membership service
@@ -29,7 +29,11 @@ namespace MedTech.Application.Services.Membership
         #endregion
 
         #region Methods
-        
+        public bool ValidateUser(string email, string password)
+        {
+            var user = _userRepository.Table.First(u => u.Email == email);
+            return SaltedHash.Verify(user.Salt, user.Password, password);
+        }
         #endregion
 
         #region Helper methods

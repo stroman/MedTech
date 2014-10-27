@@ -8,7 +8,7 @@ homeModule.config(function ($routeProvider) {
     });
 
     $routeProvider.when('/Login', {
-        templateUrl: '/Account/Login',
-        controller: 'LoginController'
+        templateUrl: '/Home/Login',
+        controller: 'AccountController'
     });
 });

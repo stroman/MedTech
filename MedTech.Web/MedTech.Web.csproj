@@ -907,7 +907,8 @@
     <Content Include="Scripts\App\Lib\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\App\Lib\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\App\Lib\version.txt" />
-    <Content Include="Scripts\App\Membership\login-controller.js" />
+    <Content Include="Scripts\App\Account\account-controller.js" />
+    <Content Include="Scripts\App\Account\account-repository.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -943,8 +944,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\CompanyInfo.cshtml" />
+    <Content Include="Views\Shared\_LogInOff.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

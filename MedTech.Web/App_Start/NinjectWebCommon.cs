@@ -15,6 +15,7 @@ namespace MedTech.Web.App_Start
     using MedTech.Infrastructure;
     using MedTech.Application.Services.Categories;
     using MedTech.Application.Services.CompanyInfo;
+    using MedTech.Application.Services.Membership;
     using System.Web.Http;
     
 
@@ -78,6 +79,7 @@ namespace MedTech.Web.App_Start
             //service
             kernel.Bind<ICategoryService>().To<CategoryService>();
             kernel.Bind<ICompanyInfoService>().To<CompanyInfoService>();
+            kernel.Bind<IMembershipService>().To<MembershipService>();
 
         }        
     }
