@@ -138,7 +138,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.cerulean.css" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-controller.js" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-repository.js" />
     <Content Include="Scripts\App\home-module.js" />
