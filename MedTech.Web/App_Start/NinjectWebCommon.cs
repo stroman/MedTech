@@ -79,7 +79,7 @@ namespace MedTech.Web.App_Start
             //service
             kernel.Bind<ICategoryService>().To<CategoryService>();
             kernel.Bind<ICompanyInfoService>().To<CompanyInfoService>();
-            kernel.Bind<IMembershipService>().To<MembershipService>();
+            kernel.Bind<IUserService>().To<UserService>();
 
         }        
     }

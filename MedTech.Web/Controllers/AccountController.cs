@@ -13,8 +13,8 @@ namespace MedTech.Web.Controllers
 {
     public class AccountController : ApiController
     {
-        private readonly IMembershipService _membershipService;
-        public AccountController(IMembershipService membershipService)
+        private readonly IUserService _membershipService;
+        public AccountController(IUserService membershipService)
         {
             _membershipService = membershipService;
         }
