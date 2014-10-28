@@ -1,16 +1,17 @@
-﻿using MedTech.Core.Domain.Membership;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using MedTech.Application.DTO.Membership;
+
 namespace MedTech.Application.Services.Authentication
 {
     public interface IAuthenticationService
     {
-        void SignIn(User user, bool remember);
+        void SignIn(UserDto user, bool remember);
         void SignOut();
-        User GetAuthenticatedUser();
+        UserDto GetAuthenticatedUser();
     }
 }

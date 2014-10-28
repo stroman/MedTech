@@ -7,48 +7,43 @@ using System.Web.Http;
 
 using MedTech.Web.Models;
 using MedTech.Application.Services.Membership;
+using MedTech.Application.Services.Authentication;
 using Newtonsoft.Json;
 
 namespace MedTech.Web.Controllers
 {
     public class AccountController : ApiController
     {
-        private readonly IUserService _membershipService;
-        public AccountController(IUserService membershipService)
+        private readonly IMembershipService _membershipService;
+        private readonly IAuthenticationService _authenticationService;
+        public AccountController(IMembershipService membershipService, IAuthenticationService authenticationService)
         {
             _membershipService = membershipService;
+            _authenticationService = authenticationService;
         }
 
         public bool Login(object account)
-        {
-            var strAccount = account.ToString();
-            var model = JsonConvert.DeserializeObject<LoginViewModel>(strAccount); ;
+        {            
+            var model = JsonConvert.DeserializeObject<LoginViewModel>(account.ToString()); ;
 
             if (model != null)
             {
                 if (_membershipService.ValidateUser(model.Email, model.Password))
                 {
+                    var user = _membershipService.GetUserByEmail(model.Email);
+                    _authenticationService.SignIn(user, model.Remember);
                     return true;
                 }
             }            
             return false;
         }
 
-        #region Helpers
-        //private IAuthenticationManager AuthenticationManager
-        //{
-        //    get
-        //    {
-        //        return HttpContext.GetOwinContext().Authentication;
-        //    }
-        //}
-        //private void SignIn(ApplicationUser user, bool isPersistent)
-        //{
-        //    AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-        //    var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-        //    AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
-        //}
+        public void Logout(int id)
+        {
+            _authenticationService.SignOut();
+        }
 
+        #region Helpers
         #endregion
     }
 }

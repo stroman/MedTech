@@ -7,4 +7,7 @@
                 });
             }
         };
+        $scope.logoutClick = function () {
+            accountRepository.del();
+        };
     });

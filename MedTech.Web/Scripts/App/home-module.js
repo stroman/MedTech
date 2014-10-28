@@ -11,4 +11,6 @@ homeModule.config(function ($routeProvider) {
         templateUrl: '/Home/Login',
         controller: 'AccountController'
     });
+
+    //$routeProvider.otherwise({ redirectTo: '/'});
 });

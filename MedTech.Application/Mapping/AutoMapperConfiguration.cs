@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MedTech.Core.Domain.Categories;
 using MedTech.Core.Domain.CompanyInfo;
+using MedTech.Core.Domain.Membership;
 using MedTech.Application.DTO.Categories;
 using MedTech.Application.DTO.CompanyInfo;
+using MedTech.Application.DTO.Membership;
 
 namespace MedTech.Application.Mapping
 {
@@ -20,6 +22,9 @@ namespace MedTech.Application.Mapping
 
             Mapper.CreateMap<CompanyInfo, CompanyInfoDto>();
             Mapper.CreateMap<CompanyInfoDto, CompanyInfo>();
+
+            Mapper.CreateMap<User, UserDto>();
+            Mapper.CreateMap<UserDto, User>();
         }
     }
 }
