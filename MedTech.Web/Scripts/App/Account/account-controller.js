@@ -2,12 +2,12 @@
     function ($scope, accountRepository) {
         $scope.loginClick = function (login, loginForm) {
             if (loginForm.$valid) {
-                accountRepository.post(login).then(function (data) {
+                accountRepository.login(login).then(function (data) {
                     alert(data);
                 });
             }
         };
         $scope.logoutClick = function () {
-            accountRepository.del();
+            accountRepository.logout();
         };
     });
