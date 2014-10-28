@@ -1,13 +1,13 @@
 ﻿homeModule.factory('accountRepository', function ($http, $q) {
     return {
-        post: function (data) {
+        login: function (data) {
             var deferred = $q.defer();
             $http.post('/api/Account', data).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         },
-        del: function () {
+        logout: function () {
             alert("GO");            
-            $http.delete('/api/Account', {'id' : '1'});
+            $http.delete('/api/Account/1');            
         }
     }
 });
