@@ -21,7 +21,7 @@ namespace MedTech.Web.Controllers
             _membershipService = membershipService;
             _authenticationService = authenticationService;
         }
-        
+        [HttpPost]
         public bool Login(object account)
         {            
             var model = JsonConvert.DeserializeObject<LoginViewModel>(account.ToString()); ;
@@ -38,7 +38,7 @@ namespace MedTech.Web.Controllers
             return false;
         }
         [HttpDelete]
-        public void Logout(int id)
+        public void Logout()
         {
             _authenticationService.SignOut();
         }

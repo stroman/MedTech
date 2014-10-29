@@ -59,8 +59,12 @@ namespace MedTech.Application.Services.Membership
         }
         public bool ValidateUser(string email, string password)
         {
-            var user = _userRepository.Table.First(u => u.Email == email);
-            return SaltedHash.Verify(user.Salt, user.Password, password);
+            var user = _userRepository.Table.FirstOrDefault(u => u.Email == email);
+            if (user != null)
+            {
+                return SaltedHash.Verify(user.Salt, user.Password, password);
+            }
+            return false;
         }
         #endregion
 

@@ -40,3 +40,12 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+/*------------message------------*/
+.message{
+    display: none;
+    height: 38px;
+    padding: 8px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}

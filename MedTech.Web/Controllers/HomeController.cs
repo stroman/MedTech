@@ -21,7 +21,7 @@ namespace MedTech.Web.Controllers
         }
 
         public ActionResult Login()
-        {
+        {            
             return View();
         }
 	}
