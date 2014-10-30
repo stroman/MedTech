@@ -4,20 +4,18 @@
             if (loginForm.$valid) {
                 accountRepository.login(login).then(function (data) {                    
                     if (data) {
-                        
+                        accountRepository.setStatusLogin(login.email);
                     }
                     else {
                         $scope.message = "Неверное имя пользователя или пароль";
                         $(".message").show();
-                    }
-                    alert(accountRepository.isLoggedIn());
+                    }                   
                 });
             }
         };
-        $scope.logoutClick = function () {
-            alert(accountRepository.isLoggedIn());
+        $scope.logoutClick = function () {            
             accountRepository.logout();
-            
+            accountRepository.setSatusLogout();
         };
     });
 

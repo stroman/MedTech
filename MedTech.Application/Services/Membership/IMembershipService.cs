@@ -11,6 +11,7 @@ namespace MedTech.Application.Services.Membership
     public interface IMembershipService
     {
         UserDto GetUserByEmail(string email);
+        List<UserDto> GetAllUsers();
         void UpdateUser(UserDto user);
         bool ValidateUser(string email, string password);
 

@@ -1,9 +1,8 @@
-﻿var homeModule = angular.module('homeModule', ['ngRoute', 'ngCookies']);
+﻿var homeModule = angular.module('homeModule', ['ngRoute', 'adminModule']);
 
 homeModule.value('redirectToUrlAfterLogin', { url: '/' });
 
-homeModule.config(function ($routeProvider) {
-
+homeModule.config(function ($routeProvider) {    
     $routeProvider.when('/CompanyInfo', {
         templateUrl: '/Home/CompanyInfo',
         controller: 'CompanyInfoController'
@@ -13,6 +12,6 @@ homeModule.config(function ($routeProvider) {
         templateUrl: '/Home/Login',
         controller: 'AccountController'
     });   
-
+    //$locationProvider.html5Mode(true);
     //$routeProvider.otherwise({ redirectTo: '/'});
 });

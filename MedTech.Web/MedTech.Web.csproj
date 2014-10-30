@@ -130,6 +130,8 @@
     <Content Include="Content\bootstrap.cerulean.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ng-table.css" />
+    <Content Include="Content\ng-table.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -138,6 +140,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.cerulean.css" />
+    <Content Include="Scripts\App\Admin\admin-module.js" />
+    <Content Include="Scripts\App\Admin\User\user-controller.js" />
+    <Content Include="Scripts\App\Admin\User\user-repository.js" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-controller.js" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-repository.js" />
     <Content Include="Scripts\App\home-module.js" />
@@ -153,6 +158,7 @@
     <Content Include="Scripts\App\Lib\angular.min.js.map" />
     <Content Include="Scripts\App\Lib\errors.json" />
     <Content Include="Scripts\App\Lib\version.json" />
+    <Content Include="Content\ng-table.less" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\App\Lib\angular-animate.js" />
     <Content Include="Scripts\App\Lib\angular-animate.min.js" />
@@ -918,6 +924,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\ng-table.js" />
+    <Content Include="Scripts\ng-table.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -927,9 +935,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CompanyInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -946,6 +956,9 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\CompanyInfo.cshtml" />
     <Content Include="Views\Shared\_LogInOff.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Scripts\ng-table.map" />
+    <Content Include="Views\Admin\Users.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

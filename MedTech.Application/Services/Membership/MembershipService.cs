@@ -37,6 +37,11 @@ namespace MedTech.Application.Services.Membership
             return _userRepository.Table.FirstOrDefault(u => u.Email == email).ToDto();
         }
 
+        public List<UserDto> GetAllUsers ()
+        {
+            return GetActualUsers().Select(u => u.ToDto()).ToList();
+        }
+        
         //public void InsertUser(User user)
         //{
         //    if (user == null)
@@ -69,7 +74,10 @@ namespace MedTech.Application.Services.Membership
         #endregion
 
         #region Helper methods
-       
+        private IEnumerable<User> GetActualUsers()
+        {
+            return _userRepository.Table.AsEnumerable();
+        }
         #endregion
     }
 }

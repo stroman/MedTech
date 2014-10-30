@@ -3,7 +3,7 @@
     <form class="navbar-right" id="logoutForm" ng-controller="AccountController">
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("Hello " + User.Identity.Name + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink("Панель администратора " + User.Identity.Name, "Index", "Admin")
             </li>
             <li><a href="javascript:void(0)" ng-click="logoutClick()">Выход</a></li>
         </ul>
