@@ -17,5 +17,6 @@ namespace MedTech.Application.DTO.Membership
         public string Phone { get; set; }        
         public Nullable<System.DateTime> LastLoginDate { get; set; }        
         public long RoleId { get; set; }
+        public string RoleName { get; set; }
     }
 }
