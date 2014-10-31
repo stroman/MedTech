@@ -1,0 +1,16 @@
+﻿<h2 class="page-header">Текстовые ресурсы</h2>
+
+<p><strong>Page:</strong> {{tableParams.page()}}</p>
+<p><strong>Count per page:</strong> {{tableParams.count()}}</p>
+<p><strong>Total:</strong> {{tableParams.total()}}</p>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-bordered table-hover" ng-table="tableParams">
+            <tr ng-repeat="tresource in $data">
+                <td data-title="'Key'" sortable="'key'">{{tresource.key}}</td>
+                <td data-title="'Value'" sortable="'value'">{{tresource.value}}</td>                
+            </tr>
+        </table>
+    </div>
+</div>

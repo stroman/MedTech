@@ -6,6 +6,8 @@ using MedTech.Core.Domain.CompanyInfo;
 using MedTech.Application.DTO.CompanyInfo;
 using MedTech.Core.Domain.Membership;
 using MedTech.Application.DTO.Membership;
+using MedTech.Core.Domain.TextResources;
+using MedTech.Application.DTO.TextResources;
 
 namespace MedTech.Application.Mapping
 {
@@ -57,6 +59,23 @@ namespace MedTech.Application.Mapping
         }
 
         public static User ToEntity(this UserDto dto, User destination)
+        {
+            return Mapper.Map(dto, destination);
+        }
+        #endregion
+
+        #region TextResource
+        public static TextResourceDto ToDto(this TextResource entity)
+        {
+            return Mapper.Map<TextResource, TextResourceDto>(entity);
+        }
+
+        public static TextResource ToEntity(this TextResourceDto dto)
+        {
+            return Mapper.Map<TextResourceDto, TextResource>(dto);
+        }
+
+        public static TextResource ToEntity(this TextResourceDto dto, TextResource destination)
         {
             return Mapper.Map(dto, destination);
         }

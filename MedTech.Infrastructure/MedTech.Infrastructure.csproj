@@ -55,6 +55,7 @@
     <Compile Include="Mapping\CompanyInfo\ContactMap.cs" />
     <Compile Include="Mapping\Membership\RoleMap.cs" />
     <Compile Include="Mapping\Membership\UserMap.cs" />
+    <Compile Include="Mapping\TextResources\TextResourceMap.cs" />
     <Compile Include="MedTechMigrationsConfiguration.cs" />
     <Compile Include="MedTechObjectContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

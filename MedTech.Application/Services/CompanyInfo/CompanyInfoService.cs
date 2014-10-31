@@ -16,7 +16,7 @@ namespace MedTech.Application.Services.CompanyInfo
     /// </summary>
     public class CompanyInfoService : ICompanyInfoService
     {
-         #region Fields
+        #region Fields
 
         private readonly IRepository<MedTech.Core.Domain.CompanyInfo.CompanyInfo> _companyInfoRepository;
         #endregion

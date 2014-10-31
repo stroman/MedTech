@@ -4,15 +4,16 @@
 }
 
 @section scriptsInHead
-{
-        
-    @*<script src="~/Scripts/ng-table.min.js"></script>*@
+{ 
+
     <script src="~/Scripts/App/Account/account-controller.js"></script>
-    <script src="~/Scripts/App/Account/account-repository.js"></script>
+    <script src="~/Scripts/App/Account/account-repository.js"></script>    
     
-    @*<script src="~/Scripts/App/Admin/admin-module.js"></script>*@
     <script src="~/Scripts/App/Admin/User/user-controller.js"></script>
     <script src="~/Scripts/App/Admin/User/user-repository.js"></script>
+
+    <script src="~/Scripts/App/Admin/TextResource/textresource-controller.js"></script>
+    <script src="~/Scripts/App/Admin/TextResource/textresource-repository.js"></script>
 }
 
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -39,7 +40,7 @@
         <div class="col-md-2">
             <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="#/Users">Пользователи</a></li>
-                <li><a href="#/">Текстовые ресурсы</a></li>
+                <li><a href="#/TextResources">Текстовые ресурсы</a></li>
             </ul>
         </div>
         <div class="col-md-10">

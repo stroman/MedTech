@@ -17,5 +17,10 @@ namespace MedTech.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult TextResources()
+        {
+            return View();
+        }
 	}
 }

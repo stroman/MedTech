@@ -1,18 +1,19 @@
-﻿adminModule.controller('UserController',
-    function ($scope, userRepository, ngTableParams) {
+﻿adminModule.controller('TextResourceController',
+    function ($scope, textResourceRepository, ngTableParams) {
         $scope.tableParams = new ngTableParams({
             page: 1,       // show first page      
-            count: 10,     // count per page   
-            sorting: { name: 'asc' }
-            },{
+            count: 5,     // count per page   
+            sorting: { key: 'asc' }
+        }, {
             total: 0,     // length of data
+            counts: [5,10,20,50],
             getData: function ($defer, params) {
                 // ajax request to api
-                userRepository.get().then(function (data) {
-                    // update table params
-                    params.total(data.lenght);
+                textResourceRepository.getList(params.$params).then(function (data) {
+                    // update table params                   
+                    params.total(data.totalCount);
                     // set new data
-                    $defer.resolve(data);
+                    $defer.resolve(data.rows);
                 });
 
                 //Api.get(params.url(), function (data) {
@@ -27,5 +28,5 @@
         });
 
 
-           
+
     });

@@ -141,6 +141,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.cerulean.css" />
     <Content Include="Scripts\App\Admin\admin-module.js" />
+    <Content Include="Scripts\App\Admin\TextResource\textresource-controller.js" />
+    <Content Include="Scripts\App\Admin\TextResource\textresource-repository.js" />
     <Content Include="Scripts\App\Admin\User\user-controller.js" />
     <Content Include="Scripts\App\Admin\User\user-repository.js" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-controller.js" />
@@ -939,12 +941,14 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CompanyInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TextResourceController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Membership\CustomRoleProvider.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -959,6 +963,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Scripts\ng-table.map" />
     <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Admin\TextResources.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

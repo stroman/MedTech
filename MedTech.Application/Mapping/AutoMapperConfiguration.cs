@@ -7,9 +7,11 @@ using AutoMapper;
 using MedTech.Core.Domain.Categories;
 using MedTech.Core.Domain.CompanyInfo;
 using MedTech.Core.Domain.Membership;
+using MedTech.Core.Domain.TextResources;
 using MedTech.Application.DTO.Categories;
 using MedTech.Application.DTO.CompanyInfo;
 using MedTech.Application.DTO.Membership;
+using MedTech.Application.DTO.TextResources;
 
 namespace MedTech.Application.Mapping
 {
@@ -25,6 +27,9 @@ namespace MedTech.Application.Mapping
 
             Mapper.CreateMap<User, UserDto>().ForMember(dto => dto.RoleName, dto => dto.MapFrom( u => u.Role.Name));
             Mapper.CreateMap<UserDto, User>();
+
+            Mapper.CreateMap<TextResource, TextResourceDto>();
+            Mapper.CreateMap<TextResourceDto, TextResource>();
         }
     }
 }

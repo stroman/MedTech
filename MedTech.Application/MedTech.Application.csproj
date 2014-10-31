@@ -53,6 +53,7 @@
     <Compile Include="DTO\CompanyInfo\ContactDto.cs" />
     <Compile Include="DTO\Membership\RoleDto.cs" />
     <Compile Include="DTO\Membership\UserDto.cs" />
+    <Compile Include="DTO\TextResources\TextResourceDto.cs" />
     <Compile Include="Mapping\AutoMapperConfiguration.cs" />
     <Compile Include="Mapping\MappingExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +66,8 @@
     <Compile Include="Services\Membership\IMembershipService.cs" />
     <Compile Include="Services\Membership\MembershipService.cs" />
     <Compile Include="Services\Membership\SaltedHash.cs" />
+    <Compile Include="Services\TextResources\ITextResourceService.cs" />
+    <Compile Include="Services\TextResources\TextResourceService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

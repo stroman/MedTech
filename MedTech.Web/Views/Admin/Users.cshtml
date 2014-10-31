@@ -1,7 +1,22 @@
 ﻿
-<h2>Пользователи</h2>
+<h2 class="page-header">Пользователи</h2>
 
-<div ng-repeat="user in users">
-    <p>{{user.firstName}} 1</p>
-    <p>{{user.roleName}} 1</p>
+<p><strong>Page:</strong> {{tableParams.page()}}</p>
+<p><strong>Count per page:</strong> {{tableParams.count()}}</p>
+<p><strong>Total:</strong> {{tableParams.total()}}</p>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-bordered table-hover" ng-table="tableParams">
+            <tr ng-repeat="user in $data">
+                <td data-title="'First Name'" sortable="firstName">{{user.firstName}}</td>
+                <td data-title="'Last Name'"  sortable="lastName">{{user.lastName}}</td>
+                <td data-title="'Email'" sortable="email">{{user.email}}</td>
+                <td data-title="'Phone'" sortable="phone">{{user.phone}}</td>
+                <td data-title="'Last login date'" sortable="lastLoginDate">{{user.lastLoginDate}}</td>
+                <td data-title="'Role'" sortable="role">{{user.roleName}}</td>
+            </tr>
+        </table>
+    </div>
 </div>
+

@@ -49,6 +49,8 @@
     <Compile Include="Domain\Membership\Role.cs" />
     <Compile Include="Domain\Membership\RoleEnum.cs" />
     <Compile Include="Domain\Membership\User.cs" />
+    <Compile Include="Domain\TextResources\TextResource.cs" />
+    <Compile Include="Helpers\RequestFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

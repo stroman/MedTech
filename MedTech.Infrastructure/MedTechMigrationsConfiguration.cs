@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using MedTech.Core.Domain.Membership;
 using MedTech.Core.Domain.CompanyInfo;
+using MedTech.Core.Domain.TextResources;
 
 namespace MedTech.Infrastructure
 {
@@ -50,6 +51,25 @@ namespace MedTech.Infrastructure
                     Description = "The best company.",
                     Address = "Minsk"
                 });
+            }
+
+            if(!context.Set<TextResource>().Any())
+            {
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Save", Value = "Сохранить" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Edit", Value = "Редактировать" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Delete", Value = "Удалить" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Cancel", Value = "Отменить" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Title", Value = "Текстовые ресурсы" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Key", Value = "Ключ" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Value", Value = "Значение" });                
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Title", Value = "Пользователи" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.FirstName", Value = "Имя" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.LastName", Value = "Фамилия" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Email", Value = "Email" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Phone", Value = "Телефон" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.LastLoginDate", Value = "Дата последнего входа" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Role", Value = "Роль" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Password", Value = "Пароль" });
             }
 
             context.SaveChanges();
