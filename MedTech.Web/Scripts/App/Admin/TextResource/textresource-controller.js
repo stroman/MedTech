@@ -6,7 +6,7 @@
             sorting: { key: 'asc' }
         }, {
             total: 0,     // length of data
-            counts: [5,10,20,50],
+            counts: [5, 10, 20, 50],
             getData: function ($defer, params) {
                 // ajax request to api
                 textResourceRepository.getList(params.$params).then(function (data) {
@@ -15,18 +15,18 @@
                     // set new data
                     $defer.resolve(data.rows);
                 });
-
-                //Api.get(params.url(), function (data) {
-                //    $timeout(function () {
-                //        // update table params
-                //        params.total(data.total);
-                //        // set new data
-                //        $defer.resolve(data.result);
-                //    }, 500);
-                //});
             }
         });
 
+        $scope.updateClick = function (data) {
+            textResourceRepository.edit(data);
+        };
 
-
+        $scope.createClick = function (data) {
+            textResourceRepository.create(data);            
+            $scope.newtresource = '';
+        };
+        $scope.deleteClick = function (id) {
+            textResourceRepository.remove(id);
+        }
     });

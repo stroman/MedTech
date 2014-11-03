@@ -70,6 +70,8 @@ namespace MedTech.Infrastructure
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.LastLoginDate", Value = "Дата последнего входа" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Role", Value = "Роль" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Password", Value = "Пароль" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Login", Value = "Вход" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Logout", Value = "Выход" });
             }
 
             context.SaveChanges();

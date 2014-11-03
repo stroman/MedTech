@@ -33,16 +33,36 @@ namespace MedTech.Web.Controllers
         public ResponseModel GetTextResources(object filter)
         {
             var filterModel = JsonConvert.DeserializeObject<RequestFilter>(filter.ToString());
-            int totalCount;
-            int filteredCount;
+            int totalCount;            
             var tResources = _textResourceService.GetAllTextResource(filterModel, out totalCount);
             var responseModel = new ResponseModel {
-                TotalCount = totalCount,
-                FilteredCount =15,
+                TotalCount = totalCount,               
                 Rows = tResources
             };
             return responseModel;           
         }
+        [HttpPost]
+        public void UpdateTextResource(object tResource)
+        {
+            var tResourceModel = JsonConvert.DeserializeObject<TextResourceDto>(tResource.ToString());
+            _textResourceService.UpdateTextResource(tResourceModel);
+        }
+        [HttpPost]
+        public void CreateTextResource(int id, object tResource)
+        {
+            var tResourceModel = JsonConvert.DeserializeObject<TextResourceDto>(tResource.ToString());
+            if (id == 0 && tResourceModel.Id == 0)
+            {
+                _textResourceService.CreateTextResource(tResourceModel);
+            }
+        }
+        [HttpDelete]
+        public void DeleteTextResource(long id)
+        {
+            _textResourceService.DeleteTextResource(id);
+        }
+
+
         #endregion
 
         #region Helper methods

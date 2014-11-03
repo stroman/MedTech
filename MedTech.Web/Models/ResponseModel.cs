@@ -7,8 +7,7 @@ namespace MedTech.Web.Models
 {
     public class ResponseModel
     {
-        public int TotalCount { get; set; }
-        public int FilteredCount { get; set; }
+        public int TotalCount { get; set; }        
         public object Rows { get; set; }
     }
 }

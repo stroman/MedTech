@@ -12,5 +12,9 @@ namespace MedTech.Application.Services.TextResources
     {
         List<TextResourceDto> GetAllTextResource(RequestFilter filter, out int totalCount);
         string GetResourceValue(string resourceKey);
+        void UpdateTextResource(TextResourceDto model);
+        void CreateTextResource(TextResourceDto model);
+
+        void DeleteTextResource(long id);
     }
 }
