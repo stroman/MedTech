@@ -19,22 +19,22 @@ namespace MedTech.Web.App_Start
     using MedTech.Application.Services.Authentication;
     using MedTech.Application.Services.TextResources;
     using System.Web.Http;
-    
 
-    public static class NinjectWebCommon 
+
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -42,7 +42,7 @@ namespace MedTech.Web.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -84,7 +84,6 @@ namespace MedTech.Web.App_Start
             kernel.Bind<IMembershipService>().To<MembershipService>();
             kernel.Bind<IAuthenticationService>().To<AuthenticationService>();
             kernel.Bind<ITextResourceService>().To<TextResourceService>();
-
-        }        
+        }
     }
 }

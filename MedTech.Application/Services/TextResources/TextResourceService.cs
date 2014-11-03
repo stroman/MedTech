@@ -39,6 +39,17 @@ namespace MedTech.Application.Services.TextResources
 
             return list.Skip((filter.Page - 1) * filter.Count).Take(filter.Count).Select(tr => tr.ToDto()).ToList();                
         }
+
+        public string GetResourceValue(string resourceKey)
+        {
+            var resource = GetActualTextResource().FirstOrDefault(tr => tr.Key == resourceKey);
+            if( resource ==  null)
+            {
+                //throw new ArgumentNullException("Resource");
+                return resourceKey;
+            }
+            return resource.Value;
+        }
         #endregion
 
         #region Helper methods

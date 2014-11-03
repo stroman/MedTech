@@ -54,7 +54,7 @@ namespace MedTech.Application.Services.Authentication
             }
 
             HttpContext.Current.Response.Cookies.Add(cookie);
-            user.LastLoginDate = DateTime.UtcNow;
+            user.LastLoginDate = DateTime.Now;
             _membershipService.UpdateUser(user);
             _cachedUser = user;
 

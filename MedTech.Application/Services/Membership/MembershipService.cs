@@ -34,13 +34,13 @@ namespace MedTech.Application.Services.Membership
 
         public UserDto GetUserByEmail(string email)
         {
-            return _userRepository.Table.FirstOrDefault(u => u.Email == email).ToDto();
+            return GetActualUserByEmail(email).ToDto();
         }
 
         public List<UserDto> GetAllUsers ()
         {
             return GetActualUsers().Select(u => u.ToDto()).ToList();
-        }
+        }        
         
         //public void InsertUser(User user)
         //{
@@ -59,7 +59,7 @@ namespace MedTech.Application.Services.Membership
             if(entity == null)
                 throw new ArgumentNullException("user entity");
 
-            entity = user.ToEntity();
+            user.ToEntity(entity);
             _userRepository.Update(entity);
         }
         public bool ValidateUser(string email, string password)
@@ -71,12 +71,22 @@ namespace MedTech.Application.Services.Membership
             }
             return false;
         }
+
+        public string[] GetAllRoles()
+        {
+            return _roleRepository.Table.Select(r => r.Name).ToArray();
+        }
         #endregion
 
         #region Helper methods
         private IEnumerable<User> GetActualUsers()
         {
             return _userRepository.Table.AsEnumerable();
+        }
+
+        private User GetActualUserByEmail(string email)
+        {
+            return _userRepository.Table.FirstOrDefault(u => u.Email == email);
         }
         #endregion
     }

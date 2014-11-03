@@ -14,6 +14,7 @@ namespace MedTech.Application.Services.Membership
         List<UserDto> GetAllUsers();
         void UpdateUser(UserDto user);
         bool ValidateUser(string email, string password);
+        string[] GetAllRoles();
 
     }
 }

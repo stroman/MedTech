@@ -11,5 +11,6 @@ namespace MedTech.Application.Services.TextResources
     public interface ITextResourceService
     {
         List<TextResourceDto> GetAllTextResource(RequestFilter filter, out int totalCount);
+        string GetResourceValue(string resourceKey);
     }
 }
