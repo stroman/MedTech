@@ -2,19 +2,25 @@
     return {
         getList: function (filter) {            
             var deferred = $q.defer();
-            $http.put('/api/TextResource', filter).success(deferred.resolve).error(deferred.reject);
+            $http.put('/api/TextResource', filter).success(deferred.resolve).error(deferred.reject);            
             return deferred.promise;
         },
         update: function (data)
-        {            
-            $http.post('/api/TextResource', data);
+        {
+            var deferred = $q.defer();
+            $http.post('/api/TextResource/' + data.id, data).success(deferred.resolve).error(deferred.reject);
+            return deferred.promise;;
         },
         create: function(data)
-        {           
-            $http.post('/api/TextResource/0', data);
+        {
+            var deferred = $q.defer();
+            $http.post('/api/TextResource/0', data).success(deferred.resolve).error(deferred.reject);
+            return deferred.promise;
         },
         remove: function (id) {
-            $http.delete('/api/TextResource/' + id);            
+            var deferred = $q.defer();
+            $http.delete('/api/TextResource/' + id).success(deferred.resolve).error(deferred.reject);
+            return deferred.promise;
         }
     }
 });

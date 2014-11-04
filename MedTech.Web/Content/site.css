@@ -42,8 +42,7 @@ input[type="checkbox"].input-validation-error {
 }
 
 /*------------message------------*/
-.message{
-    display: none;
+.message{    
     height: 38px;
     padding: 8px 12px;
     border: 1px solid #cccccc;

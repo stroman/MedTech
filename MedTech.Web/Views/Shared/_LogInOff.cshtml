@@ -1,18 +1,18 @@
-﻿@if (Request.IsAuthenticated)
-{
-    <form class="navbar-right" id="logoutForm" ng-controller="AccountController">
+﻿<div ng-controller="AccountController"> 
+    <div ng-if="accountInfo.isLogged">
+        <form class="navbar-right" id="logoutForm">
+            <ul class="nav navbar-nav navbar-right">
+                <li>                    
+                    @Html.ActionLink("Панель администратора " + User.Identity.Name, "Index", "Admin")
+                </li>
+                <li><a href="javascript:void(0)" ng-click="logoutClick()">Выход</a></li>
+            </ul>
+        </form>
+    </div>
+    <div ng-if="!accountInfo.isLogged">
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Панель администратора " + User.Identity.Name, "Index", "Admin")
-            </li>
-            <li><a href="javascript:void(0)" ng-click="logoutClick()">Выход</a></li>
+            <li><a href="#/Login">Вход</a></li>
         </ul>
-    </form>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">        
-        <li><a href="#/Login">Вход</a></li>
-    </ul>
-}
+    </div>
+</div>
 

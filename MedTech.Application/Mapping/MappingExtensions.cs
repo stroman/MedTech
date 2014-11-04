@@ -62,6 +62,21 @@ namespace MedTech.Application.Mapping
         {
             return Mapper.Map(dto, destination);
         }
+
+        //public static RoleDto ToDto(this Role entity)
+        //{
+        //    return Mapper.Map<Role, RoleDto>(entity);
+        //}
+
+        //public static Role ToEntity(this RoleDto dto)
+        //{
+        //    return Mapper.Map<RoleDto, Role>(dto);
+        //}
+
+        //public static Role ToEntity(this RoleDto dto, Role destination)
+        //{
+        //    return Mapper.Map(dto, destination);
+        //}
         #endregion
 
         #region TextResource

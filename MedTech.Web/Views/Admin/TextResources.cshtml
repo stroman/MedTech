@@ -5,33 +5,39 @@
 <p><strong>Total:</strong> {{tableParams.total()}}</p>
 <p><strong>Filter:</strong> {{tableParams.filter()|json}}</p>
 
-    <div class="panel panel-default">
-        <div class="panel-body">
+<div class="panel panel-default">
+    <div class="panel-body">
+            
             <table class="table table-bordered">
                 <tr>
                     <td><input class="form-control" type="text" ng-model="newtresource.key" /></td>
                     <td><input class="form-control" type="text" ng-model="newtresource.value" /></td>
-                    <td width="200px"><a href="" class="btn btn-success" ng-click="createClick(newtresource);tableParams.reload()">Создать</a></td>
+                    <td width="200px"><a href="" class="btn btn-success" ng-click="createClick(newtresource)">Создать</a></td>
                 </tr>
             </table>
             
-            <table class="table table-bordered table-hover" ng-table="tableParams" show-filter="true">                
+            <table class="table table-bordered table-hover" ng-table="tableParams" show-filter="true">
                 <tr ng-repeat="tresource in $data">
                     <td data-title="'Key'" sortable="'key'" filter="{ 'key': 'text' }">
-                        <span ng-if="!tresource.$edit">{{tresource.key}}</span>
+                        <span ng-if="!tresource.$edit">
+                            {{tresource.key}}                                
+                        </span>
                         <div ng-if="tresource.$edit"><input class="form-control" type="text" ng-model="tresource.key" /></div>
                     </td>
                     <td data-title="'Value'" sortable="'value'" filter="{ 'value': 'text' }">
-                        <span ng-if="!tresource.$edit">{{tresource.value}}</span>
-                        <div ng-if="tresource.$edit"><input class="form-control" type="text" ng-model="tresource.value" /></div>                    
+                        <span ng-if="!tresource.$edit">                                
+                            {{tresource.value}}
+                        </span>
+                        <div ng-if="tresource.$edit"><input class="form-control" type="text" ng-model="tresource.value" /></div>
                     </td>
                     <td width="200px">
                         <a ng-if="!tresource.$edit" href="" class="btn btn-success btn-xs" ng-click="tresource.$edit = true">Редактировать</a>
-                        <a ng-if="!tresource.$edit" href="" class="btn btn-danger btn-xs" ng-click="tresource.$edit = false;deleteClick(tresource.id);tableParams.reload()">Удалить</a>
+                        <a ng-if="!tresource.$edit" href="" class="btn btn-danger btn-xs" ng-click="tresource.$edit = false;deleteClick(tresource.id)">Удалить</a>
                         <a ng-if="tresource.$edit" href="" class="btn btn-primary btn-xs" ng-click="tresource.$edit = false;updateClick(tresource)">Сохранить</a>
                         <a ng-if="tresource.$edit" href="" class="btn btn-default btn-xs" ng-click="tresource.$edit = false;tableParams.reload()">Отменить</a>
                     </td>
-                </tr>                
+                </tr>
             </table>
-        </div>
+            
     </div>
+</div>

@@ -1,5 +1,5 @@
 ﻿homeModule.factory('accountRepository', function ($http, $q, $location, redirectToUrlAfterLogin) {
-    var account = {
+    var accountInfo = {
         isLogged: false,
         email : '',
     };    
@@ -13,15 +13,25 @@
         logout: function () {                        
             $http.delete('/api/Account');            
         },
-        account: account,
+        getLoggedStatus: function (){
+            var deferred = $q.defer();
+            $http.get('/api/Account').success(deferred.resolve).error(deferred.reject);
+            return deferred.promise;
+        },
+        getAccountInfo: function () {
+            return accountInfo;
+        },
+        setAccountInfo: function (data) {
+            accountInfo = data;
+        },
         setStatusLogin: function(email){
-            account.isLogged = true;
-            account.email = email;
+            accountInfo.isLogged = true;
+            accountInfo.email = email;
             redirectToDefaultUrl();
         },
         setSatusLogout: function () {
-            account.isLogged = false;
-            account.email = '';
+            accountInfo.isLogged = false;
+            accountInfo.email = '';
             redirectToDefaultUrl();
         },        
     }

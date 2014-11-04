@@ -21,6 +21,12 @@ namespace MedTech.Web.Controllers
             _membershipService = membershipService;
             _authenticationService = authenticationService;
         }
+        [HttpGet]
+        public object getLoggedStatus ()
+        {
+            var AccountInfo = new { IsLogged = User.Identity.IsAuthenticated, Email = User.Identity.Name};
+            return AccountInfo;
+        }
         [HttpPost]
         public bool Login(object account)
         {            

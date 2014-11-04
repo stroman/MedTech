@@ -1,20 +1,57 @@
-﻿
-<h2 class="page-header">Пользователи</h2>
+﻿@using MedTech.Core.Domain.Membership
+
+<h2 class="page-header">@T("Admin.Users.Title")</h2>
 
 <p><strong>Page:</strong> {{tableParams.page()}}</p>
 <p><strong>Count per page:</strong> {{tableParams.count()}}</p>
 <p><strong>Total:</strong> {{tableParams.total()}}</p>
+<p><strong>Filter:</strong> {{tableParams.filter()|json}}</p>
 
 <div class="panel panel-default">
     <div class="panel-body">
         <table class="table table-bordered table-hover" ng-table="tableParams">
             <tr ng-repeat="user in $data">
-                <td data-title="'First Name'" sortable="firstName">{{user.firstName}}</td>
-                <td data-title="'Last Name'"  sortable="lastName">{{user.lastName}}</td>
-                <td data-title="'Email'" sortable="email">{{user.email}}</td>
-                <td data-title="'Phone'" sortable="phone">{{user.phone}}</td>
-                <td data-title="'Last login date'" sortable="lastLoginDate">{{user.lastLoginDate}}</td>
-                <td data-title="'Role'" sortable="role">{{user.roleName}}</td>
+                <td data-title="'@T("Admin.Users.FirstName")'" sortable="'firstName'">
+                    <span ng-if="!user.$edit">
+                        {{user.firstName}}
+                    </span>
+                    <div ng-if="user.$edit"><input class="form-control" type="text" ng-model="user.firstName" /></div>                    
+                </td>
+                <td data-title="'@T("Admin.Users.LastName")'" sortable="'lastName'">
+                    <span ng-if="!user.$edit">
+                        {{user.lastName}}
+                    </span>
+                    <div ng-if="user.$edit"><input class="form-control" type="text" ng-model="user.lastName" /></div>
+                </td>
+                <td data-title="'@T("Admin.Users.Email")'" sortable="'email'">
+                    {{user.email}}
+                </td>
+                <td data-title="'@T("Admin.Users.Phone")'" sortable="'phone'">
+                    <span ng-if="!user.$edit">
+                        {{user.phone}}
+                    </span>
+                    <div ng-if="user.$edit"><input class="form-control" type="text" ng-model="user.phone" /></div>
+                </td>
+                <td data-title="'@T("Admin.Users.LastLoginDate")'" sortable="'lastLoginDate'">{{user.lastLoginDate | date: 'dd-MM-yyyy в HH:mm:ss'}}</td>
+                <td data-title="'@T("Admin.Users.Role")'" sortable="'role'">
+                    <div ng-if="!user.$edit">
+                        {{user.roleName}}
+                    </div>
+                    <div ng-if="user.$edit">
+                        <select class="form-control" ng-model="user.roleId">
+                            @foreach (var key in Enum.GetValues(typeof(RoleEnum)))
+                            {
+                                <option value="@((int)key)">@key</option>
+                            }
+                        </select>
+                    </div>
+                </td>
+                <td width="200px">
+                    <a ng-if="!user.$edit" href="" class="btn btn-success btn-xs" ng-click="user.$edit = true">@T("Admin.Common.Edit")</a>
+                    <a ng-if="!user.$edit" href="" class="btn btn-danger btn-xs" ng-click="user.$edit = false;deleteClick(user.id)">@T("Admin.Common.Delete")</a>
+                    <a ng-if="user.$edit" href="" class="btn btn-primary btn-xs" ng-click="user.$edit = false;updateClick(user)">@T("Admin.Common.Save")</a>
+                    <a ng-if="user.$edit" href="" class="btn btn-default btn-xs" ng-click="user.$edit = false;tableParams.reload()">@T("Admin.Common.Cancel")</a>
+                </td>
             </tr>
         </table>
     </div>

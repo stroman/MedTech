@@ -41,7 +41,7 @@
             <ul id="admnin-menu" class="nav nav-pills nav-stacked">
                 @if(User.IsInRole("Admin"))
                 { 
-                    <li class="active"><a href="#/Users">@T("Admin.Users.Title")</a></li>
+                    <li><a href="#/Users">@T("Admin.Users.Title")</a></li>
                     <li><a href="#/TextResources">@T("Admin.TextResource.Title")</a></li>
                 }
             </ul>
@@ -59,8 +59,7 @@
 
 @section scripts{
     <script>
-        $(document).ready(function () {
-            document.location.href = $(".active > a").attr("href");
+        $(document).ready(function () {            
             $("#admnin-menu li").click(function () {
                 $(".active").removeClass('active');
                 $(this).addClass('active');

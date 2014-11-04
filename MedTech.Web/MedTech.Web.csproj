@@ -147,6 +147,7 @@
     <Content Include="Scripts\App\Admin\User\user-repository.js" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-controller.js" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-repository.js" />
+    <Content Include="Scripts\App\directives.js" />
     <Content Include="Scripts\App\home-module.js" />
     <Content Include="Scripts\App\Lib\angular-animate.min.js.map" />
     <Content Include="Scripts\App\Lib\angular-aria.min.js.map" />

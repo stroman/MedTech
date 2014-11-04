@@ -40,20 +40,18 @@ namespace MedTech.Web.Controllers
                 Rows = tResources
             };
             return responseModel;           
-        }
+        }        
         [HttpPost]
-        public void UpdateTextResource(object tResource)
-        {
-            var tResourceModel = JsonConvert.DeserializeObject<TextResourceDto>(tResource.ToString());
-            _textResourceService.UpdateTextResource(tResourceModel);
-        }
-        [HttpPost]
-        public void CreateTextResource(int id, object tResource)
+        public void DoTextResource(int id, object tResource)
         {
             var tResourceModel = JsonConvert.DeserializeObject<TextResourceDto>(tResource.ToString());
             if (id == 0 && tResourceModel.Id == 0)
             {
                 _textResourceService.CreateTextResource(tResourceModel);
+            }
+            else
+            {
+                _textResourceService.UpdateTextResource(tResourceModel);
             }
         }
         [HttpDelete]

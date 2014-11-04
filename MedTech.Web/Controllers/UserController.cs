@@ -7,6 +7,9 @@ using System.Web.Http;
 
 using MedTech.Application.Services.Membership;
 using MedTech.Application.DTO.Membership;
+using Newtonsoft.Json;
+using MedTech.Core.Helpers;
+using MedTech.Web.Models;
 
 
 namespace MedTech.Web.Controllers
@@ -27,10 +30,18 @@ namespace MedTech.Web.Controllers
         #endregion
 
         #region Methods CRUD
-        [HttpGet]
-        public List<UserDto> GetUsers()
+        [HttpPut]
+        public ResponseModel GetUsers(object filter)
         {
-            return _membershipService.GetAllUsers();           
+            var filterModel = JsonConvert.DeserializeObject<RequestFilter>(filter.ToString());
+            int totalCount;
+            var users = _membershipService.GetAllUsers();
+            var responseModel = new ResponseModel
+            {
+                TotalCount = users.Count,
+                Rows = users
+            };
+            return responseModel;           
         }
 
         #endregion
