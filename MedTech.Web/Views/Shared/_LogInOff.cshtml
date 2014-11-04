@@ -1,9 +1,14 @@
 ﻿<div ng-controller="AccountController"> 
     <div ng-if="accountInfo.isLogged">
         <form class="navbar-right" id="logoutForm">
-            <ul class="nav navbar-nav navbar-right">
-                <li>                    
-                    @Html.ActionLink("Панель администратора " + User.Identity.Name, "Index", "Admin")
+            <ul class="nav navbar-nav navbar-right">                
+                <li>
+                    <a id="admin-panel-link" href="@Url.Action("Index","Admin")" class="text-center small">
+                        <dl style="margin-bottom:0px">
+                            <dd>Панель администратора</dd>
+                            <dd>@User.Identity.Name</dd>
+                        </dl>
+                    </a>                    
                 </li>
                 <li><a href="javascript:void(0)" ng-click="logoutClick()">Выход</a></li>
             </ul>

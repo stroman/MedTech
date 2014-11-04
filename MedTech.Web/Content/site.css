@@ -53,3 +53,8 @@ input[type="checkbox"].input-validation-error {
     margin-top:20px;
     margin-bottom:20px
 }
+/*----------admin panel link---------------*/
+#admin-panel-link{
+    padding-top:8px;
+    padding-bottom:8px;   
+}
