@@ -56,12 +56,19 @@ namespace MedTech.Infrastructure
             if(!context.Set<TextResource>().Any())
             {
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Save", Value = "Сохранить" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Create", Value = "Создать" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Edit", Value = "Редактировать" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Delete", Value = "Удалить" });
-                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Cancel", Value = "Отменить" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Cancel", Value = "Отмена" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Panel", Value = "Панель администратора" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Settings", Value = "Настройки" });
+                
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Warning.Delete", Value = "Вы уверены, что хотите удалить?" });
+                
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Title", Value = "Текстовые ресурсы" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Key", Value = "Ключ" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Value", Value = "Значение" });                
+                
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Title", Value = "Пользователи" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.FirstName", Value = "Имя" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.LastName", Value = "Фамилия" });
@@ -70,8 +77,11 @@ namespace MedTech.Infrastructure
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.LastLoginDate", Value = "Дата последнего входа" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Role", Value = "Роль" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Password", Value = "Пароль" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Create.Title", Value = "Создание пользователя" });
+                
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Login", Value = "Вход" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Logout", Value = "Выход" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Search", Value = "Поиск" });
             }
 
             context.SaveChanges();

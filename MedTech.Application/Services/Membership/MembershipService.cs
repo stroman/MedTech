@@ -8,6 +8,7 @@ using MedTech.Core.Data;
 using MedTech.Core.Domain.Membership;
 using MedTech.Application.DTO.Membership;
 using MedTech.Application.Mapping;
+using MedTech.Core.Helpers;
 
 namespace MedTech.Application.Services.Membership
 {
@@ -40,27 +41,35 @@ namespace MedTech.Application.Services.Membership
         public List<UserDto> GetAllUsers ()
         {
             return GetActualUsers().Select(u => u.ToDto()).ToList();
-        }        
-        
-        //public void InsertUser(User user)
-        //{
-        //    if (user == null)
-        //        throw new ArgumentNullException("user");
+        }
 
-        //    _userRepository.Insert(user);
-        //}
+        public void CreateUser(UserDto user)
+        {
+            if (user == null)
+                throw new ArgumentNullException("user");
+            
+            var saltedHash = new SaltedHash(user.Password);
+            user.Password = saltedHash.Hash;
+            user.Salt = saltedHash.Salt;
+            
+            _userRepository.Insert(user.ToEntity());
+        }
         public void UpdateUser(UserDto user)
         {
             if (user == null)
                 throw new ArgumentNullException("user");
-
             var entity = _userRepository.GetById(user.Id);
-
             if(entity == null)
                 throw new ArgumentNullException("user entity");
-
             user.ToEntity(entity);
             _userRepository.Update(entity);
+        }
+        public void DeleteUser(long id)
+        {
+            var user = _userRepository.GetById(id);
+            if (user == null)
+                throw new ArgumentNullException("user entity");
+            _userRepository.Delete(user);
         }
         public bool ValidateUser(string email, string password)
         {
@@ -81,12 +90,33 @@ namespace MedTech.Application.Services.Membership
         #region Helper methods
         private IEnumerable<User> GetActualUsers()
         {
-            return _userRepository.Table.AsEnumerable();
+            return _userRepository.Table;
         }
 
         private User GetActualUserByEmail(string email)
         {
             return _userRepository.Table.FirstOrDefault(u => u.Email == email);
+        }
+
+        private static IEnumerable<User> SortUsers(IEnumerable<User> users, RequestFilter filter)
+        {
+            var field =  filter.Sorting.First().Key;
+            var type = filter.Sorting.First().Value;
+            if(field == "lastLoginDate" )
+            {
+                return type == "asc" ? users.OrderBy(u => u.LastLoginDate) : users.OrderByDescending(u => u.LastLoginDate);
+            }
+            Func<User, string> orderingFunction = (c => field == "firstName" ? c.FirstName
+                                                      : field == "lastName" ? c.LastName
+                                                      : field == "email" ? c.Email
+                                                      : field == "phone" ? c.Phone
+                                                      : field == "role" ? c.Role.Name : "");
+            return type  == "asc" ? users.OrderBy(orderingFunction) : users.OrderByDescending(orderingFunction);
+        }
+
+        private static IEnumerable<User> SearchUsers(IEnumerable<User> users, RequestFilter filter)
+        {
+            return users;
         }
         #endregion
     }

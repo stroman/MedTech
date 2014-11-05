@@ -28,16 +28,19 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Меню<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
+                @if(User.IsInRole("Admin")) 
+                { 
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">@T("Admin.Common.Settings")<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/Users">@T("Admin.Users.Title")</a></li>
+                            <li><a href="#/TextResources">@T("Admin.TextResource.Title")</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                }
             </ul>
             @Html.Partial("_LogInOff")
         </div>
@@ -45,17 +48,8 @@
 </div>
 
 <div class="container body-content">
-    <div class="row margin20">
-        <div class="col-md-2">
-            <ul id="admnin-menu" class="nav nav-pills nav-stacked">
-                @if(User.IsInRole("Admin"))
-                { 
-                    <li><a href="#/Users">@T("Admin.Users.Title")</a></li>
-                    <li><a href="#/TextResources">@T("Admin.TextResource.Title")</a></li>
-                }
-            </ul>
-        </div>
-        <div class="col-md-10">
+    <div class="row">        
+        <div class="col-md-12">
             <ng-view></ng-view>
         </div>
     </div>
@@ -68,15 +62,9 @@
 
 @section scripts{
     <script>
-        $(document).ready(function () {            
-            $("#admnin-menu li").click(function () {
-                $(".active").removeClass('active');
-                $(this).addClass('active');
-            });
-        });
+        
     </script>
 }
-
 
 
 

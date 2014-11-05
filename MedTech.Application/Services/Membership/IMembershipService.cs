@@ -12,7 +12,9 @@ namespace MedTech.Application.Services.Membership
     {
         UserDto GetUserByEmail(string email);
         List<UserDto> GetAllUsers();
+        void CreateUser(UserDto user);
         void UpdateUser(UserDto user);
+        void DeleteUser(long id);
         bool ValidateUser(string email, string password);
         string[] GetAllRoles();
 

@@ -1,9 +1,4 @@
-﻿<h2 class="page-header">Текстовые ресурсы</h2>
-
-<p><strong>Page:</strong> {{tableParams.page()}}</p>
-<p><strong>Count per page:</strong> {{tableParams.count()}}</p>
-<p><strong>Total:</strong> {{tableParams.total()}}</p>
-<p><strong>Filter:</strong> {{tableParams.filter()|json}}</p>
+﻿<h2 class="page-header">@T("Admin.TextResource.Title")</h2>
 
 <div class="panel panel-default">
     <div class="panel-body">
@@ -12,32 +7,33 @@
                 <tr>
                     <td><input class="form-control" type="text" ng-model="newtresource.key" /></td>
                     <td><input class="form-control" type="text" ng-model="newtresource.value" /></td>
-                    <td width="200px"><a href="" class="btn btn-success" ng-click="createClick(newtresource)">Создать</a></td>
+                    <td width="200px"><a href="" class="btn btn-primary" ng-click="createClick(newtresource)">@T("Admin.Common.Create")</a></td>
                 </tr>
             </table>
             
             <table class="table table-bordered table-hover" ng-table="tableParams" show-filter="true">
                 <tr ng-repeat="tresource in $data">
-                    <td data-title="'Key'" sortable="'key'" filter="{ 'key': 'text' }">
+                    <td data-title="'@T("Admin.TextResource.Key")'" sortable="'key'" filter="{ 'key': 'text' }">
                         <span ng-if="!tresource.$edit">
                             {{tresource.key}}                                
                         </span>
-                        <div ng-if="tresource.$edit"><input class="form-control" type="text" ng-model="tresource.key" /></div>
+                        <div ng-if="tresource.$edit"><input class="form-control" type="text" ng-model="tresource.key"/></div>
                     </td>
-                    <td data-title="'Value'" sortable="'value'" filter="{ 'value': 'text' }">
-                        <span ng-if="!tresource.$edit">                                
+                    <td data-title="'@T("Admin.TextResource.Value")'" sortable="'value'" filter="{ 'value': 'text' }">
+                        <span ng-if="!tresource.$edit">
                             {{tresource.value}}
                         </span>
                         <div ng-if="tresource.$edit"><input class="form-control" type="text" ng-model="tresource.value" /></div>
                     </td>
                     <td width="200px">
-                        <a ng-if="!tresource.$edit" href="" class="btn btn-success btn-xs" ng-click="tresource.$edit = true">Редактировать</a>
-                        <a ng-if="!tresource.$edit" href="" class="btn btn-danger btn-xs" ng-click="tresource.$edit = false;deleteClick(tresource.id)">Удалить</a>
-                        <a ng-if="tresource.$edit" href="" class="btn btn-primary btn-xs" ng-click="tresource.$edit = false;updateClick(tresource)">Сохранить</a>
-                        <a ng-if="tresource.$edit" href="" class="btn btn-default btn-xs" ng-click="tresource.$edit = false;tableParams.reload()">Отменить</a>
+                        <a ng-if="!tresource.$edit" href="" class="btn btn-success btn-xs" ng-click="tresource.$edit = true">@T("Admin.Common.Edit")</a>
+                        <a ng-if="!tresource.$edit" href="" class="btn btn-danger btn-xs" ng-click="deleteClick(tresource.id)">@T("Admin.Common.Delete")</a>
+                        <a ng-if="tresource.$edit" href="" class="btn btn-primary btn-xs" ng-click="tresource.$edit = false;updateClick(tresource)">@T("Admin.Common.Save")</a>
+                        <a ng-if="tresource.$edit" href="" class="btn btn-default btn-xs" ng-click="tresource.$edit = false;tableParams.reload()">@T("Admin.Common.Cancel")</a>
                     </td>
                 </tr>
-            </table>
-            
+            </table>            
     </div>
 </div>
+
+

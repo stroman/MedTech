@@ -43,6 +43,24 @@ namespace MedTech.Web.Controllers
             };
             return responseModel;           
         }
+        [HttpPost]
+        public void DoUser(int id, object user)
+        {
+            var userModel = JsonConvert.DeserializeObject<UserDto>(user.ToString());
+            if (id == 0 && userModel.Id == 0)
+            {
+                _membershipService.CreateUser(userModel);
+            }
+            else
+            {
+                _membershipService.UpdateUser(userModel);
+            }
+        }
+        [HttpDelete]
+        public void DeleteUser(long id)
+        {
+            _membershipService.DeleteUser(id);
+        }
 
         #endregion
 

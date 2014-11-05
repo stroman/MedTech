@@ -8,6 +8,13 @@ adminModule.config(function ($routeProvider) {
 });
 
 adminModule.config(function ($routeProvider) {
+    $routeProvider.when('/CreateUser', {
+        templateUrl: '/Admin/CreateUser',
+        controller: 'UserController'
+    });
+});
+
+adminModule.config(function ($routeProvider) {
     $routeProvider.when('/TextResources', {
         templateUrl: '/Admin/TextResources',
         controller: 'TextResourceController'

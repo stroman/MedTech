@@ -1,5 +1,5 @@
 ﻿adminModule.controller('UserController',
-    function ($scope, userRepository, ngTableParams) {
+    function ($scope, userRepository, ngTableParams, $location) {
         $scope.tableParams = new ngTableParams({
             page: 1,       // show first page      
             count: 10,     // count per page   
@@ -16,6 +16,32 @@
                     $defer.resolve(data.rows);
                 });                
             }
-        });      
+        });
+
+        $scope.updateClick = function (data) {
+            userRepository.update(data);
+        };
+
+        $scope.createClick = function (data, dataForm) {
+            if (dataForm.$valid) {
+                $scope.confirmPasswordError = false;
+                if (data.password == data.confirmPassword) {
+                    userRepository.create(data).then(function () {
+                        $location.path("/Users");
+                    });                    
+                }
+                else {
+                    $scope.confirmPasswordError = true;
+                }
+            }            
+        };
+        $scope.deleteClick = function (id) {
+            if (confirm("Jopa2")) {
+                userRepository.remove(id).then(function () {
+                    $scope.tableParams.reload();
+
+                });
+            }
+        };       
 
     });

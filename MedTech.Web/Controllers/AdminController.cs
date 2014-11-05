@@ -18,6 +18,11 @@ namespace MedTech.Web.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
+        public ActionResult CreateUser()
+        {
+            return View();
+        }        
         [Authorize(Roles="Admin")]
         public ActionResult TextResources()
         {

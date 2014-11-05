@@ -1,0 +1,66 @@
+﻿@using MedTech.Core.Domain.Membership
+
+<h2 class="page-header">@T("Admin.Users.Create.Title")</h2>
+<div class="row">
+    <div class="col-md-14">
+        <form class="form-horizontal" name="createUserForm">
+            <fieldset>
+                <div class="form-group">
+                    <label for="FirstName" class="col-md-2 control-label">First Name</label>
+                    <div class="col-md-10">
+                        <input id="FirstName" class="form-control" ng-model="user.firstName" required maxlength="50" type="text" placeholder="First Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="LastName" class="col-md-2 control-label">Last Name</label>
+                    <div class="col-md-10">
+                        <input id="LastName" class="form-control" ng-model="user.lastName" required maxlength="50" type="text" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Email" class="col-md-2 control-label">Email</label>
+                    <div class="col-md-10">
+                        <input id="Email" class="form-control" ng-model="user.email" required maxlength="50" type="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Password" class="col-md-2 control-label">Password</label>
+                    <div class="col-md-10">
+                        <input name="Password" class="form-control" ng-model="user.password" required minlength="6" maxlength="128" type="password" placeholder="Password">
+                        <span class="text-danger" ng-show="createUserForm.Password.$error.minlength">Пароль должен быть не менее 6-ти символов</span>                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ConfirmPassword" class="col-md-2 control-label">Confirm Password</label>
+                    <div class="col-md-10">
+                        <input name="ConfirmPassword" class="form-control" ng-model="user.confirmPassword" required maxlength="128" type="password" placeholder="Confirm Password">
+                        <span class="text-danger" ng-show="confirmPasswordError">Пароли должны совпадать</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Phone" class="col-md-2 control-label">Phone</label>
+                    <div class="col-md-10">
+                        <input id="Phone" class="form-control" ng-model="user.phone" required maxlength="50" type="text" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Role" class="col-md-2 control-label">Role</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="Role" ng-init="user.roleId=1" ng-model="user.roleId" required>
+                            @foreach (var key in Enum.GetValues(typeof(RoleEnum)))
+                            {
+                                <option value="@((int)key)">@key</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <button type="submit" class="btn btn-primary" ng-click="createClick(user, createUserForm)">Submit</button>
+                        <a href="#/Users" class="btn btn-default">Cancel</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

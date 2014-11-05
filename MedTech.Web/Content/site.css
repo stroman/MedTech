@@ -58,3 +58,10 @@ input[type="checkbox"].input-validation-error {
     padding-top:8px;
     padding-bottom:8px;   
 }
+/*-------------ng-table---------------*/
+.my-column{
+    width: 180px;
+}
+.my-column-min{
+    min-width: 120px;
+}

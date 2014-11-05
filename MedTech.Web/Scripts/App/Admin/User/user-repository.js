@@ -19,6 +19,11 @@
             var deferred = $q.defer();
             $http.delete('/api/User/' + id).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
+        },
+        checkEmail: function (email) {
+            var deferred = $q.defer();
+            $http.post('/api/User', email).success(deferred.resolve).error(deferred.reject);
+            return deferred.promise;
         }
     }
 });

@@ -29,8 +29,11 @@
             });
         };
         $scope.deleteClick = function (id) {
-            textResourceRepository.remove(id).then(function () {
-                $scope.tableParams.reload();
-            });
+            if (confirm("Jopa2")) {
+                textResourceRepository.remove(id).then(function () {
+                    $scope.tableParams.reload();
+
+                });
+            }
         }
     });

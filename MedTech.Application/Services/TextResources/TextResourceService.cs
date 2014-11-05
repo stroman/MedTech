@@ -39,13 +39,19 @@ namespace MedTech.Application.Services.TextResources
 
         public void UpdateTextResource(TextResourceDto model)
         {
+            if (model == null)
+                throw new ArgumentNullException("text resource");
             var resource =_textResourceRepository.GetById(model.Id);
+            if(resource == null)
+                throw new ArgumentNullException("text resource entity");
             resource = model.ToEntity(resource);            
             _textResourceRepository.Update(resource);
         }
 
         public void CreateTextResource(TextResourceDto model)
         {
+            if(model == null)
+                throw new ArgumentNullException("text resource");
             var resource = model.ToEntity();
             _textResourceRepository.Insert(resource);
         }
@@ -53,6 +59,8 @@ namespace MedTech.Application.Services.TextResources
         public void DeleteTextResource(long id)
         {
             var resource = _textResourceRepository.GetById(id);
+            if (resource == null)
+                throw new ArgumentNullException("text resource entity");
             _textResourceRepository.Delete(resource);
         }
 
@@ -74,10 +82,12 @@ namespace MedTech.Application.Services.TextResources
             return _textResourceRepository.Table;
         }
         private static IEnumerable<TextResource> SortTextResources(IEnumerable<TextResource> textResources, RequestFilter filter)
-        {            
-            Func<TextResource, string> orderingFunction = (c => filter.Sorting.First().Key == "key"  ? c.Key  
-                                                              : filter.Sorting.First().Key == "value" ? c.Value  : "");
-            return filter.Sorting.First().Value == "asc" ? textResources.OrderBy(orderingFunction) : textResources.OrderByDescending(orderingFunction);
+        {
+            var field = filter.Sorting.First().Key;
+            var type = filter.Sorting.First().Value;
+            Func<TextResource, string> orderingFunction = (c => field == "key"  ? c.Key  
+                                                              : field == "value" ? c.Value  : "");
+            return type == "asc" ? textResources.OrderBy(orderingFunction) : textResources.OrderByDescending(orderingFunction);
         }
         private static IEnumerable<TextResource> SearchTextResources(IEnumerable<TextResource> textResources, RequestFilter filter)
         {
