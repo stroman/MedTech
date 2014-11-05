@@ -12,3 +12,16 @@
         }
     };
 });
+
+homeModule.directive('emailUnique', function () {
+    return {
+        restrict: 'AE',
+        require: 'ngModel',
+        link: function ($scope, elem, attrs, ngModel) {
+            ngModel.$validators.username = function (modelValue, viewValue) {
+                var value = modelValue || viewValue;
+                return /^[a-zA-Z0-9]+$/.test(value);
+            }
+        }
+    }
+});

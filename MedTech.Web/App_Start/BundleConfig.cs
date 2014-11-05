@@ -19,7 +19,8 @@ namespace MedTech.Web
                                                                       "~/Scripts/App/Lib/angular-cookies.js",
                                                                       "~/Scripts/App/Lib/angular-resource.js",
                                                                       "~/Scripts/App/Lib/angular-sanitize.js",
-                                                                      "~/Scripts/App/Lib/angular-route.js"));
+                                                                      "~/Scripts/App/Lib/angular-route.js",
+                                                                      "~/Scripts/App/Lib/angular-messages.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.cerulean.css", 
                                                                  "~/Content/site.css"));
