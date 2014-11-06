@@ -63,8 +63,13 @@ namespace MedTech.Infrastructure
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Panel", Value = "Панель администратора" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Settings", Value = "Настройки" });
                 
-                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Common.Warning.Delete", Value = "Вы уверены, что хотите удалить?" });
-                
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Warning.Delete", Value = "Вы уверены, что хотите удалить?" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Warning.FieldRequired", Value = "Поле должно быть заполнено" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Warning.Email.Type", Value = "Введите корректный адрес электронной почты" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Warning.Email.Unique", Value = "Такой адрес электронной почты уже существует" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Warning.Password.Lenght", Value = "Пароль должен быть не менее 6-ти символов" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Warning.Password.Confirm", Value = "Поля пароль и подтверждение пароля должны совпадать" });
+
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Title", Value = "Текстовые ресурсы" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Key", Value = "Ключ" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.TextResource.Value", Value = "Значение" });                
@@ -77,11 +82,13 @@ namespace MedTech.Infrastructure
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.LastLoginDate", Value = "Дата последнего входа" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Role", Value = "Роль" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Password", Value = "Пароль" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.ConfirmPassword", Value = "Подтверждение пароля" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Admin.Users.Create.Title", Value = "Создание пользователя" });
                 
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Login", Value = "Вход" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Logout", Value = "Выход" });
                 context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Search", Value = "Поиск" });
+                context.Set<TextResource>().Add(new TextResource { Id = 1, Key = "Common.Search.Clear", Value = "Очистить поиск" });
             }
 
             context.SaveChanges();

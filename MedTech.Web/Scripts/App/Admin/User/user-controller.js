@@ -19,7 +19,10 @@
         });
 
         $scope.updateClick = function (data) {
-            userRepository.update(data);
+            userRepository.update(data).then(function () {
+                $scope.tableParams.reload();
+            });
+
         };
 
         $scope.createClick = function (data, dataForm) {
@@ -36,12 +39,17 @@
             }            
         };
         $scope.deleteClick = function (id) {
-            if (confirm("Jopa2")) {
+            if (confirm($("#deleteMessage").html())) {
                 userRepository.remove(id).then(function () {
                     $scope.tableParams.reload();
 
                 });
             }
-        };       
+        };        
+        $scope.searchClick = function () {
+            var filter = { search: $scope.search }
+            //alert($scope.search);
+            $scope.tableParams.filter(filter);
+        };
 
     });

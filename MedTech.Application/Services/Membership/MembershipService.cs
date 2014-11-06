@@ -38,9 +38,12 @@ namespace MedTech.Application.Services.Membership
             return GetActualUserByEmail(email).ToDto();
         }
 
-        public List<UserDto> GetAllUsers ()
-        {
-            return GetActualUsers().Select(u => u.ToDto()).ToList();
+        public List<UserDto> GetAllUsers(RequestFilter filter, out int totalCount)
+        {            
+            var users = GetActualUsers();
+            users = SortUsers(SearchUsers(users, filter), filter);
+            totalCount = users.Count();
+            return users.Skip((filter.Page - 1) * filter.Count).Take(filter.Count).Select(tr => tr.ToDto()).ToList(); 
         }
 
         public void CreateUser(UserDto user)
@@ -85,6 +88,12 @@ namespace MedTech.Application.Services.Membership
         {
             return _roleRepository.Table.Select(r => r.Name).ToArray();
         }
+
+        public bool IsEmailExists(string email)
+        {
+            var user = GetActualUserByEmail(email);
+            return user == null ? false : true;
+        }
         #endregion
 
         #region Helper methods
@@ -116,6 +125,15 @@ namespace MedTech.Application.Services.Membership
 
         private static IEnumerable<User> SearchUsers(IEnumerable<User> users, RequestFilter filter)
         {
+            if(filter.Filter != null && filter.Filter.Any())
+            {
+                var search = filter.Filter.First().Value.ToLower();
+                return users.Where(u => u.FirstName.ToLower().Contains(search)
+                                     || u.LastName.ToLower().Contains(search)
+                                     || u.Email.ToLower().Contains(search)
+                                     || u.Phone.ToLower().Contains(search)
+                                     || u.Role.Name.ToLower().Contains(search));                    
+            }
             return users;
         }
         #endregion

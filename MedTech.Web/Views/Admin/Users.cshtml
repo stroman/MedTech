@@ -13,9 +13,10 @@
             <div class="col-xs-6">
                 <a href="#/CreateUser" class="btn btn-primary">@T("Admin.Common.Create")</a>
             </div>
-            <div class="col-xs-6 form-inline text-right">
-                <label class="control-label">@T("Common.Search")</label>
-                <input class="form-control" type="text" ng-model="search" />
+            <div class="col-xs-6 form-inline text-right">                               
+                <input class="form-control" type="text" ng-model="search"/>
+                <a class="btn btn-primary" ng-click="searchClick(search)">@T("Common.Search")</a>
+                <a class="btn btn-default" ng-click="search='';tableParams.filter({})">@T("Common.Search.Clear")</a>                
             </div>
         </div>
         <br />
@@ -68,4 +69,5 @@
         </table>
     </div>
 </div>
+<div id="deleteMessage" style="display:none">@T("Admin.Warning.Delete")</div>
 

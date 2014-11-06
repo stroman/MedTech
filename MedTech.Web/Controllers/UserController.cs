@@ -10,7 +10,7 @@ using MedTech.Application.DTO.Membership;
 using Newtonsoft.Json;
 using MedTech.Core.Helpers;
 using MedTech.Web.Models;
-
+using System.Collections;
 
 namespace MedTech.Web.Controllers
 {
@@ -35,10 +35,10 @@ namespace MedTech.Web.Controllers
         {
             var filterModel = JsonConvert.DeserializeObject<RequestFilter>(filter.ToString());
             int totalCount;
-            var users = _membershipService.GetAllUsers();
+            var users = _membershipService.GetAllUsers(filterModel, out totalCount) ;
             var responseModel = new ResponseModel
             {
-                TotalCount = users.Count,
+                TotalCount = totalCount,
                 Rows = users
             };
             return responseModel;           
@@ -62,6 +62,12 @@ namespace MedTech.Web.Controllers
             _membershipService.DeleteUser(id);
         }
 
+        [HttpPost]
+        public bool CheckEmail(object email)
+        {
+            var emailModel = JsonConvert.DeserializeObject<EmailModel>(email.ToString());
+            return _membershipService.IsEmailExists(emailModel.Email);
+        }
         #endregion
 
         #region Helper methods

@@ -20,9 +20,10 @@
             $http.delete('/api/User/' + id).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         },
-        checkEmail: function (email) {
+        checkEmail: function (email) {            
             var deferred = $q.defer();
-            $http.post('/api/User', email).success(deferred.resolve).error(deferred.reject);
+            var user = {email: email};            
+            $http.post('/api/User', user).success(deferred.resolve).error(deferred.reject);
             return deferred.promise;
         }
     }
