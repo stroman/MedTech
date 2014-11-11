@@ -26,7 +26,12 @@ namespace MedTech.Web.Controllers
         [Authorize(Roles="Admin")]
         public ActionResult TextResources()
         {
-            return View();
+            return View();        
         }
+        [Authorize(Roles = "Admin")]
+        public ActionResult EditCompanyInfo()
+        {
+            return View();
+        }        
 	}
 }

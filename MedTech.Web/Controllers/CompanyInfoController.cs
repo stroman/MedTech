@@ -7,6 +7,7 @@ using System.Web.Http;
 
 using MedTech.Application.Services.CompanyInfo;
 using MedTech.Application.DTO.CompanyInfo;
+using Newtonsoft.Json;
 
 namespace MedTech.Web.Controllers
 {
@@ -28,7 +29,17 @@ namespace MedTech.Web.Controllers
         #region Methods CRUD
         public CompanyInfoDto GetCompanyInfo()
         {
-            return _companyInfoService.GetCompanyInfo();           
+            var t = _companyInfoService.GetCompanyInfo();
+            return t;          
+        }
+
+        [HttpPost]
+        public void UpdateCompanyInfo(object companyInfo)
+        {
+            var companyInfoModel = JsonConvert.DeserializeObject<CompanyInfoDto>(companyInfo.ToString());            
+            {
+                //_companyInfoService
+            }
         }
 
         #endregion

@@ -33,6 +33,16 @@ namespace MedTech.Application.Services.CompanyInfo
         {            
             return GetActualCompanyInfo().ToDto();
         }
+        public void UpdateCompanyInfo(CompanyInfoDto companyInfo)
+        {
+            if (companyInfo == null)
+                throw new ArgumentNullException("companyInfo");
+            var entity = _companyInfoRepository.GetById(companyInfo.Id);
+            if (entity == null)
+                throw new ArgumentNullException("companyInfo entity");
+            companyInfo.ToEntity(entity);
+            _companyInfoRepository.Update(entity);
+        }
         #endregion
 
         #region Helper methods

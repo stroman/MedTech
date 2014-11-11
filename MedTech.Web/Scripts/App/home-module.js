@@ -1,4 +1,4 @@
-﻿var homeModule = angular.module('homeModule', ['ngRoute', 'adminModule', 'ngMessages']);
+﻿var homeModule = angular.module('homeModule', ['ngRoute', 'adminModule']);
 
 homeModule.value('redirectToUrlAfterLogin', { url: '/' });
 

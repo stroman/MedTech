@@ -49,7 +49,25 @@ namespace MedTech.Infrastructure
                     Id = 1,
                     Name = "MedTech Company",
                     Description = "The best company.",
-                    Address = "Minsk"
+                    Address = "Minsk",                    
+                });
+            }
+
+            if (!context.Set<CompanyInfo>().Any() && !context.Set<Contact>().Any())
+            {
+                context.Set<Contact>().Add(new Contact
+                {
+                    Id = 1,
+                    ContactType = (int)ContactEnum.Email,
+                    Value =  "admin@medtech.com",
+                    CompanyId = 1
+                });
+                context.Set<Contact>().Add(new Contact
+                {
+                    Id = 1,
+                    ContactType = (int)ContactEnum.Phone,
+                    Value = "+37529",
+                    CompanyId = 1
                 });
             }
 

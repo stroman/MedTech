@@ -44,7 +44,22 @@ namespace MedTech.Application.Mapping
         public static CompanyInfo ToEntity(this CompanyInfoDto dto, CompanyInfo destination)
         {
             return Mapper.Map(dto, destination);
+        }       
+
+        public static ContactDto ToDto(this Contact entity)
+        {
+            return Mapper.Map<Contact, ContactDto>(entity);
         }
+
+        public static Contact ToEntity(this ContactDto dto)
+        {
+            return Mapper.Map<ContactDto, Contact>(dto);
+        }
+        public static Contact ToEntity(this ContactDto dto, Contact destination)
+        {
+            return Mapper.Map(dto, destination);
+        }
+        
         #endregion
 
         #region Membership

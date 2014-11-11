@@ -1,0 +1,23 @@
+﻿@using MedTech.Core.Domain.CompanyInfo
+
+<div class="form-group">
+    <label for="ContactType" class="col-md-2 control-label">Тип</label>
+    <div class="col-md-10">
+        <select class="form-control" id="ContactType" ng-model="contact.contactType" required>
+            @foreach (var key in Enum.GetValues(typeof(ContactEnum)))
+            {
+                <option value="@((int)key)">@key</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="Value" class="col-md-2 control-label">Значение</label>
+    <div class="col-md-10">
+        <input name="Value" class="form-control" ng-model="contact.value" required maxlength="128" type="text" placeholder="@T("Admin.Users.Password")">
+        <div ng-messages="companyInfoForm.Value.$error" ng-if="companyInfoForm.Value.$touched">
+            <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
+        </div>
+    </div>
+</div>
+

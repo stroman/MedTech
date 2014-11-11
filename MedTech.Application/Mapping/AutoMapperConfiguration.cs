@@ -25,6 +25,9 @@ namespace MedTech.Application.Mapping
             Mapper.CreateMap<CompanyInfo, CompanyInfoDto>();
             Mapper.CreateMap<CompanyInfoDto, CompanyInfo>();
 
+            Mapper.CreateMap<Contact, ContactDto>();
+            Mapper.CreateMap<ContactDto, Contact>();
+
             Mapper.CreateMap<User, UserDto>().ForMember(dto => dto.RoleName, dto => dto.MapFrom( u => u.Role.Name));
             Mapper.CreateMap<UserDto, User>();
 
