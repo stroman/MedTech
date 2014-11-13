@@ -23,12 +23,12 @@ namespace MedTech.Application.Mapping
             Mapper.CreateMap<CategoryDto, Category>();
 
             Mapper.CreateMap<CompanyInfo, CompanyInfoDto>();
-            Mapper.CreateMap<CompanyInfoDto, CompanyInfo>();
+            Mapper.CreateMap<CompanyInfoDto, CompanyInfo>().ForMember(dest => dest.Contacts, mo => mo.Ignore());
 
             Mapper.CreateMap<Contact, ContactDto>();
             Mapper.CreateMap<ContactDto, Contact>();
 
-            Mapper.CreateMap<User, UserDto>().ForMember(dto => dto.RoleName, dto => dto.MapFrom( u => u.Role.Name));
+            Mapper.CreateMap<User, UserDto>().ForMember(dest => dest.RoleName, mo => mo.MapFrom(u => u.Role.Name));
             Mapper.CreateMap<UserDto, User>();
 
             //Mapper.CreateMap<Role, RoleDto>();

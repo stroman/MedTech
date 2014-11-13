@@ -10,5 +10,6 @@ namespace MedTech.Application.Services.CompanyInfo
     public interface ICompanyInfoService
     {
         CompanyInfoDto GetCompanyInfo();
+        void UpdateCompanyInfo(CompanyInfoDto companyInfo);
     }
 }

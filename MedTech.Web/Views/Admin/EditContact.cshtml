@@ -14,10 +14,12 @@
 <div class="form-group">
     <label for="Value{{contact.id}}" class="col-md-2 control-label">Значение</label>
     <div class="col-md-10">
-        <input name="Value{{contact.id}}" class="form-control" ng-model="contact.value" required maxlength="128" type="text" placeholder="@T("Admin.Users.Password")">
-        <div ng-messages="companyInfoForm.Value{{contact.id}}.$error" ng-if="'companyInfoForm.Value{{contact.id}}.$touched'">
+        <input name="Value{{contact.id}}" style="display:inline" class="form-control" ng-model="contact.value" required maxlength="128" type="text" placeholder="@T("Admin.Users.Password")">
+        <a class="btn btn-danger delete-contact" ng-click="deleteContactClick(contact)">Удалить контакт</a>        
+        <div ng-messages="companyInfoForm.Value{{contact.id}}.$error" ng-if="'companyInfoForm.Value{{contact}}.$touched'">
             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
         </div>
-    </div>
+    </div>    
 </div>
+
 

@@ -36,10 +36,8 @@ namespace MedTech.Web.Controllers
         [HttpPost]
         public void UpdateCompanyInfo(object companyInfo)
         {
-            var companyInfoModel = JsonConvert.DeserializeObject<CompanyInfoDto>(companyInfo.ToString());            
-            {
-                //_companyInfoService
-            }
+            var companyInfoModel = JsonConvert.DeserializeObject<CompanyInfoDto>(companyInfo.ToString());
+            _companyInfoService.UpdateCompanyInfo(companyInfoModel);
         }
 
         #endregion

@@ -15,5 +15,6 @@ namespace MedTech.Application.DTO.CompanyInfo
         public int ContactType { get; set; }
 
         public long CompanyId { get; set; }
+        
     }
 }

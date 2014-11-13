@@ -49,6 +49,27 @@ namespace MedTech.Infrastructure
             }
         }
 
+        public virtual void Insert(IEnumerable<T> entities)
+        {
+            try
+            {
+                if (entities == null)
+                {
+                    throw new ArgumentNullException("list entities");
+                }
+                foreach (var entity in entities)
+                {
+                    this.Entities.Add(entity);
+                }
+                this._context.SaveChanges();
+                
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                CreateDbException(dbEx);
+            }
+        }
+
         public virtual void Update(T entity)
         {
             try
@@ -75,6 +96,26 @@ namespace MedTech.Infrastructure
                 }
                 this.Entities.Remove(entity);
                 this._context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                CreateDbException(dbEx);
+            }
+        }
+        public virtual void Delete(IEnumerable<T> entities)
+        {
+            try
+            {
+                if (entities == null)
+                {
+                    throw new ArgumentNullException("list entities");
+                }
+                foreach (var entity in entities)
+                {
+                    this.Entities.Remove(entity);
+                }
+                this._context.SaveChanges();
+
             }
             catch (DbEntityValidationException dbEx)
             {
