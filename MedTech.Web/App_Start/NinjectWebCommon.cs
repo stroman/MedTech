@@ -19,6 +19,7 @@ namespace MedTech.Web.App_Start
     using MedTech.Application.Services.Authentication;
     using MedTech.Application.Services.TextResources;
     using System.Web.Http;
+    using MedTech.Web.Mailer;
 
 
     public static class NinjectWebCommon
@@ -84,6 +85,9 @@ namespace MedTech.Web.App_Start
             kernel.Bind<IMembershipService>().To<MembershipService>();
             kernel.Bind<IAuthenticationService>().To<AuthenticationService>();
             kernel.Bind<ITextResourceService>().To<TextResourceService>();
+
+            //mailer
+            kernel.Bind<ISendMailer>().To<SendMailer>();
         }
     }
 }
