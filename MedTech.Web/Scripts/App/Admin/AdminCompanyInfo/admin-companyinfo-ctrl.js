@@ -1,17 +1,17 @@
 ﻿adminModule.controller('AdminCompanyInfoController',
     function ($scope, adminCompanyInfoRepository) {
-
+        $scope.$loading = true;        
         var maxId = 0;
         var oldCompanyInfo = "";
-        adminCompanyInfoRepository.get().then(function (data) {            
+        adminCompanyInfoRepository.get().then(function (data) {
+            $scope.$loading = false;
             oldCompanyInfo = clone(data);           
             $scope.companyInfo = data;            
             for (var i=0; i<data.contacts.length; i++){                
                 if (data.contacts[i].id > maxId){
                     maxId = data.contacts[i].id;
                 }
-            }            
-
+            }
             $scope.addContactClick = function (data) {
                 maxId++;                
                 data[data.length] = {id: maxId, contactType: 1, companyId: oldCompanyInfo.id, value: "" };               
@@ -26,15 +26,16 @@
                     {
                         arr.splice(i, 1);
                     }
-                }
-                console.log(arr);
+                }                
             };
 
             $scope.saveClick = function (data, dataForm) {
                 if(dataForm.$valid)
                 {
+                    $scope.$loading = true;
                     adminCompanyInfoRepository.update(data).then(function (flag) {
-                           oldCompanyInfo = clone(data);
+                        $scope.$loading = false;
+                        oldCompanyInfo = clone(data);
                     });
                 }
             };

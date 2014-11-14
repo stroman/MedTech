@@ -2,7 +2,7 @@
 
 <div class="form-group">
     <label for="ContactType{{contact.id}}" class="col-md-2 control-label">Тип</label>
-    <div class="col-md-10">
+    <div class="col-md-5">
         <select class="form-control" name="ContactType{{contact.id}}" ng-model="contact.contactType" required>
             @foreach (var key in Enum.GetValues(typeof(ContactEnum)))
             {
@@ -13,12 +13,14 @@
 </div>
 <div class="form-group">
     <label for="Value{{contact.id}}" class="col-md-2 control-label">Значение</label>
-    <div class="col-md-10">
-        <input name="Value{{contact.id}}" style="display:inline" class="form-control" ng-model="contact.value" required maxlength="128" type="text" placeholder="@T("Admin.Users.Password")">
-        <a class="btn btn-danger delete-contact" ng-click="deleteContactClick(contact)">Удалить контакт</a>        
+    <div class="col-md-5">
+        <input name="Value{{contact.id}}" style="display:inline" class="form-control" ng-model="contact.value" required maxlength="128" type="text" placeholder="@T("Admin.Users.Password")">                
         <div ng-messages="companyInfoForm.Value{{contact.id}}.$error" ng-if="'companyInfoForm.Value{{contact}}.$touched'">
             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
         </div>
+    </div>
+    <div class="col-md-2">        
+        <a class="btn btn-danger delete-contact" ng-click="deleteContactClick(contact)">Удалить контакт</a>        
     </div>    
 </div>
 

@@ -29,7 +29,7 @@
             });
         };
         $scope.deleteClick = function (id) {
-            if (confirm("Jopa2")) {
+            if (confirm($("#deleteMessage").html())) {
                 textResourceRepository.remove(id).then(function () {
                     $scope.tableParams.reload();
 

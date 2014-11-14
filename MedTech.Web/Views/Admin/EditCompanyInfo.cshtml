@@ -4,10 +4,10 @@
 <div class="row">
     <div class="col-md-14">
         <form class="form-horizontal" name="companyInfoForm">
-            <fieldset>
+            <div loading-container="$loading">
                 <div class="form-group">
                     <label for="Name" class="col-md-2 control-label">Название</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <input name="Name" class="form-control" ng-model="companyInfo.name" required maxlength="256" type="text" placeholder="@T("Admin.Users.FirstName")">
                         <div ng-messages="companyInfoForm.Name.$error" ng-if="companyInfoForm.Name.$touched">
                             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
@@ -16,24 +16,23 @@
                 </div>
                 <div class="form-group">
                     <label for="Description" class="col-md-2 control-label">Описание</label>
-                    <div class="col-md-10">
-                        <textarea name="Description" class="form-control" rows="3" ng-model="companyInfo.description" maxlength="40000" placeholder="@T("Admin.Users.LastName")">
-                        </textarea>                        
+                    <div class="col-md-5">
+                        <textarea name="Description" class="form-control" rows="3" ng-model="companyInfo.description" maxlength="40000" placeholder="@T("Admin.Users.LastName")"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Address" class="col-md-2 control-label">Адрес</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <input name="Address" class="form-control" ng-model="companyInfo.address" required maxlength="256" type="text" placeholder="@T("Admin.Users.Email")">
                         <div ng-messages="companyInfoForm.Address.$error" ng-if="companyInfoForm.Address.$touched">
-                            <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>                           
-                        </div>                        
+                            <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="UrlAddress" class="col-md-2 control-label">Адрес URL</label>
-                    <div class="col-md-10">
-                        <input name="UrlAddress" class="form-control" ng-model="companyInfo.urlAddress" maxlength="512" type="text" placeholder="@T("Admin.Users.Password")">                        
+                    <div class="col-md-5">
+                        <input name="UrlAddress" class="form-control" ng-model="companyInfo.urlAddress" maxlength="512" type="text" placeholder="@T("Admin.Users.Password")">
                     </div>
                 </div>
                 <h2>Контакты</h2>
@@ -41,17 +40,17 @@
                     @Html.Partial("EditContact")
                 </div>
                 <div class="form-group">
-                    <div class="col-md-10 col-md-offset-2">
+                    <div class="col-md-5 col-md-offset-2">
                         <a id="add-contact" class="btn btn-primary" ng-click="addContactClick(companyInfo.contacts)">Добавить контакт</a>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-10 col-md-offset-2">
+                    <div class="col-md-5 col-md-offset-2">
                         <button type="submit" class="btn btn-primary" ng-click="saveClick(companyInfo, companyInfoForm)" ng-disabled="companyInfoForm.$invalid">@T("Admin.Common.Save")</button>
                         <button class="btn btn-default" ng-click="cancelClick()">@T("Admin.Common.CancelСhanges")</button>
                     </div>
                 </div>
-            </fieldset>
+            </div>
         </form>
     </div>
 </div>

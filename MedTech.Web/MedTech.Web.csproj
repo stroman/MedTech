@@ -150,7 +150,7 @@
     <Content Include="Scripts\App\Admin\User\user-repository.js" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-controller.js" />
     <Content Include="Scripts\App\CompanyInfo\companyinfo-repository.js" />
-    <Content Include="Scripts\App\directives.js" />
+    <Content Include="Scripts\App\home-directive.js" />
     <Content Include="Scripts\App\home-module.js" />
     <Content Include="Scripts\App\Lib\angular-animate.min.js.map" />
     <Content Include="Scripts\App\Lib\angular-aria.min.js.map" />
@@ -932,6 +932,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\ng-table.js" />
     <Content Include="Scripts\ng-table.min.js" />
+    <Content Include="Scripts\spin-option.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\spin.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

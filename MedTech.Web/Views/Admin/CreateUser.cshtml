@@ -7,7 +7,7 @@
             <fieldset>
                 <div class="form-group">
                     <label for="FirstName" class="col-md-2 control-label">@T("Admin.Users.FirstName")</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <input name="FirstName" class="form-control" ng-model="user.firstName" required maxlength="50" type="text" placeholder="@T("Admin.Users.FirstName")">
                         <div ng-messages="createUserForm.FirstName.$error" ng-if="createUserForm.FirstName.$touched">
                             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>                            
@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="LastName" class="col-md-2 control-label">@T("Admin.Users.LastName")</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <input name="LastName" class="form-control" ng-model="user.lastName" required maxlength="50" type="text" placeholder="@T("Admin.Users.LastName")">
                         <div ng-messages="createUserForm.LastName.$error" ng-if="createUserForm.LastName.$touched">
                             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Email" class="col-md-2 control-label">@T("Admin.Users.Email")</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <input name="Email" class="form-control" ng-model="user.email" required maxlength="50" emailunique ng-model-options="{ updateOn: 'blur' }" type="email" placeholder="@T("Admin.Users.Email")">
                         <div ng-messages="createUserForm.Email.$error" ng-if="createUserForm.Email.$touched">
                             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Password" class="col-md-2 control-label">@T("Admin.Users.Password")</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <input name="Password" class="form-control" ng-model="user.password" required minlength="6" maxlength="128" type="password" placeholder="@T("Admin.Users.Password")">                        
                         <div ng-messages="createUserForm.Password.$error" ng-if="createUserForm.Password.$touched">
                             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="ConfirmPassword" class="col-md-2 control-label">@T("Admin.Users.ConfirmPassword")</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <input name="ConfirmPassword" class="form-control" ng-model="user.confirmPassword" required maxlength="128" type="password" placeholder="@T("Admin.Users.ConfirmPassword")">
                         <div ng-messages="createUserForm.ConfirmPassword.$error" ng-if="createUserForm.ConfirmPassword.$touched">
                             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Phone" class="col-md-2 control-label">@T("Admin.Users.Phone")</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <input name="Phone" class="form-control" ng-model="user.phone" required maxlength="50" type="text" placeholder="@T("Admin.Users.Phone")">
                         <div ng-messages="createUserForm.Phone.$error" ng-if="createUserForm.Phone.$touched">
                             <span class="text-danger" ng-message="required">@T("Admin.Warning.FieldRequired")</span>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Role" class="col-md-2 control-label">@T("Admin.Users.Role")</label>
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         <select class="form-control" id="Role" ng-init="user.roleId=1" ng-model="user.roleId" required>
                             @foreach (var key in Enum.GetValues(typeof(RoleEnum)))
                             {
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-10 col-md-offset-2">
+                    <div class="col-md-5 col-md-offset-2">
                         <button type="submit" class="btn btn-primary" ng-click="createClick(user, createUserForm)" ng-disabled="createUserForm.$invalid || emailUnique">@T("Admin.Common.Create")</button>
                         <a href="#/Users" class="btn btn-default">@T("Admin.Common.Cancel")</a>
                     </div>
