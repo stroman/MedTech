@@ -66,6 +66,7 @@
                         <a ng-if="!user.$edit" href="" class="btn btn-danger btn-xs" ng-click="user.$edit = false;deleteClick(user.id)">@T("Admin.Common.Delete")</a>
                         <a ng-if="user.$edit" href="" class="btn btn-primary btn-xs" ng-click="user.$edit = false;updateClick(user)">@T("Admin.Common.Save")</a>
                         <a ng-if="user.$edit" href="" class="btn btn-default btn-xs" ng-click="user.$edit = false;tableParams.reload()">@T("Admin.Common.Cancel")</a>
+                        <a ng-if="user.$edit" href="" class="btn btn-info btn-xs" ng-click="user.$edit = false;" style="margin-top:4px">Изменить пароль</a>
                     </td>
                 </tr>
             </table>
